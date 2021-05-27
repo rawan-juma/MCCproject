@@ -1,9 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".SignUp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="end"
+    android:orientation="horizontal"
+    >
+
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="end"
+        android:background="@drawable/card_shape">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:background="@drawable/palestine"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_thin"
+            android:layout_marginEnd="10dp"
+            android:text="نبـــض القـــدس"
+            android:textColor="#F6F7FC"
+            android:textSize="50sp" />
+
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+    <EditText
+        android:id="@+id/edUsername"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/person"
+        android:hint="اسم المستخدم"
+
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/edEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/email"
+        android:hint="البريد الإلكتروني"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/edPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/lock"
+        android:hint="كلمة المرور"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/edConfirmPass"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/lock"
+        android:hint="تأكيد كلمة المرور"
+        android:inputType="textPassword" />
+    
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/btn_shape"
+        android:text="Sign Up"
+        android:textSize="22dp"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="10dp"
+        android:layout_gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:text="Already have an account?"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#6BC09F"
+            android:layout_marginStart="5dp"
+            android:text="Log In"/>
+    </LinearLayout>
+
+</LinearLayout>
