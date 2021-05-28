@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(StatisticsFragment())
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.navigation_notifications -> {
+                R.id.navigation_urgent -> {
                     replaceFragment(UrgentFragment())
                     return@OnNavigationItemSelectedListener true
                 }
