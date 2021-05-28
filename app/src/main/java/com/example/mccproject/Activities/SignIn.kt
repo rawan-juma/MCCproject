@@ -13,8 +13,13 @@ class SignIn : AppCompatActivity() {
         setContentView(R.layout.activity_sign_in)
 
         var register=findViewById<TextView>(R.id.register)
-        register.setOnClickListener {
+        var signIn = findViewById<TextView>(R.id.signin)
+        signIn.setOnClickListener {
             var i = Intent(this,MainActivity::class.java)
+            startActivity(i)
+        }
+        register.setOnClickListener {
+            var i = Intent(this,SignUp::class.java)
             startActivity(i)
         }
     }

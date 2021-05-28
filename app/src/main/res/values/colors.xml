@@ -2,7 +2,6 @@
 <resources>
     <color name="colorPrimary">#58B691</color>
     <color name="colorPrimaryDark">#6BC09F</color>
-    <color name="colorAccent">#ACE2CE</color>
     <color name="purple_200">#58B691</color>
     <color name="purple_500">#58B691</color>
     <color name="purple_700">#4EA381</color>

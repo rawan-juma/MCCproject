@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">نبض القدس</string>
+    <string-array name="titles">
+    <item>الاعتقالات</item></string-array>
 </resources>
