@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_profile-> {
-                    replaceFragment(ProfileFragment())
+                    replaceFragment(ProfileFragment() )
                     return@OnNavigationItemSelectedListener true
                 }
 

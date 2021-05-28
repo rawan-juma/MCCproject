@@ -2,11 +2,13 @@ package com.example.mccproject.fragments
 
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.mccproject.Activities.AddNews
 import com.example.mccproject.R
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 
@@ -40,6 +42,11 @@ class ProfileFragment : Fragment() {
             val dialog = builder.create()
             dialog.show()
 
+        }
+
+        root.button3.setOnClickListener {
+            var i = Intent(context,AddNews::class.java)
+            startActivity(i)
         }
 
         return root
