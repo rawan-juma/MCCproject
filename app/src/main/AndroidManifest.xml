@@ -12,13 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MCCproject">
         <activity android:name=".Activities.AddNews"></activity>
-        <activity android:name=".Activities.SignIn" />
-        <activity android:name=".Activities.SignUp">
+        <activity android:name=".Activities.SignIn" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Activities.SignUp">
+
         </activity>
         <activity android:name=".MainActivity"></activity>
 

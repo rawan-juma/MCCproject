@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.example.mccproject.MainActivity
 import com.example.mccproject.R
 
 class SignIn : AppCompatActivity() {
@@ -13,7 +14,7 @@ class SignIn : AppCompatActivity() {
 
         var register=findViewById<TextView>(R.id.register)
         register.setOnClickListener {
-            var i = Intent(this,SignUp::class.java)
+            var i = Intent(this,MainActivity::class.java)
             startActivity(i)
         }
     }
