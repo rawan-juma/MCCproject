@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.mccproject.fragments.LatestNewsFragment
-import com.example.mccproject.fragments.NotificationFragment
+import com.example.mccproject.fragments.UrgentFragment
 import com.example.mccproject.fragments.ProfileFragment
 import com.example.mccproject.fragments.StatisticsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_notifications -> {
-                    replaceFragment(NotificationFragment())
+                    replaceFragment(UrgentFragment())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_profile-> {
