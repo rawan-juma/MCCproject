@@ -1,7 +1,8 @@
-package com.example.mccproject
+package com.example.mccproject.Activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.mccproject.R
 
 class SignUp : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
