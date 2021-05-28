@@ -11,7 +11,8 @@ class AddNews : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_news)
-
+        supportActionBar!!.title="إضافة خبر"
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         // design Date picker "just"
         editTextDate.setOnClickListener {
             datePickerDialog()
