@@ -10,7 +10,7 @@ import com.example.mccproject.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.itemnew.view.*
 
-class newsAdapter (var act: FragmentActivity, var data:MutableList<newsModel>)
+class newsAdapter (var act: FragmentActivity, var data:MutableList<newsModel>, val click: onClick)
     : RecyclerView.Adapter<newsAdapter.ViewHolder>() {
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item)  {
@@ -18,6 +18,7 @@ class newsAdapter (var act: FragmentActivity, var data:MutableList<newsModel>)
         val image = item.image
         val tvAuthor = item.tvAuthor
         val tvDate = item.tvDate
+        val cardView = item.cardView
 
     }
 
@@ -35,9 +36,14 @@ class newsAdapter (var act: FragmentActivity, var data:MutableList<newsModel>)
         holder.tvAuthor.text = data[position].author
         holder.tvDate.text = data[position].date
         Picasso.get().load(data[position].image).into(holder.image)
+        holder.cardView.setOnClickListener {
+            click.onClickItem(holder.adapterPosition)
+        }
     }
 
 
-
+    interface onClick {
+        fun onClickItem(position: Int)
+    }
 
 }

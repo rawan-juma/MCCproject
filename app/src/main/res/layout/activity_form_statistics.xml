@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/roboto"
+        android:text="إحصائيات مدينة القدس"
+        android:textColor="@color/purple_500"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/title_icon" />
+        <Spinner
+            android:id="@+id/sp_title_statices_pie"
+            android:layout_width="350dp"
+            android:layout_height="35dp"
+            android:entries="@array/titles"
+            android:fontFamily="sans-serif"
+            android:hint="Type"
+            android:textColor="#E73039" />
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/et_nums_pie_chart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/nums"
+        android:drawablePadding="8sp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="المجموع"
+        android:inputType="number"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <Button
+        android:id="@+id/btn_save_pie_chart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_shape"
+        android:fontFamily="@font/roboto"
+        android:layout_marginTop="12dp"
+        android:text="حفظ التعديلات"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/et_nums_pie_chart"
+        app:layout_constraintStart_toStartOf="@+id/et_nums_pie_chart"
+        app:layout_constraintTop_toBottomOf="@+id/et_nums_pie_chart" />
+
+    <!-- bar chart -->
+
+    <TextView
+        android:id="@+id/q"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="إحصائيات ضواحي مدينة القدس"
+        android:textColor="@color/purple_500"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_save_pie_chart"
+        app:layout_constraintStart_toStartOf="@+id/btn_save_pie_chart"
+        app:layout_constraintTop_toBottomOf="@+id/btn_save_pie_chart" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout33"
+        android:layout_width="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/q"
+        app:layout_constraintStart_toStartOf="@+id/q"
+        app:layout_constraintTop_toBottomOf="@+id/q">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@drawable/title_icon" />
+
+        <Spinner
+            android:id="@+id/sp_title_statices_bar"
+            android:layout_width="350dp"
+            android:layout_height="35dp"
+            android:entries="@array/titles"
+            android:fontFamily="sans-serif"
+            android:hint="Type"
+            android:textColor="#E73039" />
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/et_nums_bar_chart"
+        android:layout_width="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/nums"
+        android:drawablePadding="8sp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="المجموع"
+        android:inputType="number"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout33"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout33"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout33" />
+
+    <Button
+        android:id="@+id/btn_save_bar_chart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_shape"
+        android:fontFamily="@font/roboto"
+        android:text="حفظ التعديلات"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="@+id/et_nums_bar_chart"
+        app:layout_constraintStart_toStartOf="@+id/et_nums_bar_chart"
+        app:layout_constraintTop_toBottomOf="@+id/et_nums_bar_chart" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
