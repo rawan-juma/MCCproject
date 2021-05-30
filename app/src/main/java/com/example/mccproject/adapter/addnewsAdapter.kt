@@ -1,17 +1,17 @@
-package com.example.cloudfinal.adapter
+package com.example.mccproject.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cloudfinal.model.newsModel
 import com.example.mccproject.R
+import com.example.mccproject.model.addnewsModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.itemnew.view.*
 
-class newsAdapter (var act: FragmentActivity, var data:MutableList<newsModel>, val click: onClick)
-    : RecyclerView.Adapter<newsAdapter.ViewHolder>() {
+class addnewsAdapter (var act: FragmentActivity, var data:MutableList<addnewsModel>)
+    : RecyclerView.Adapter<addnewsAdapter.ViewHolder>() {
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item)  {
         val tvTitle = item.tvTitle
@@ -36,9 +36,7 @@ class newsAdapter (var act: FragmentActivity, var data:MutableList<newsModel>, v
         holder.tvAuthor.text = data[position].author
         holder.tvDate.text = data[position].date
         Picasso.get().load(data[position].image).into(holder.image)
-        holder.cardView.setOnClickListener {
-            click.onClickItem(holder.adapterPosition)
-        }
+
     }
 
 
