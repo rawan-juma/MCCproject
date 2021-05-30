@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".Activities.EditProfile">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+
+        android:id="@+id/profile_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:src="@drawable/pro"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تعديل ملفي الشخصي"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:textColor="#6BC09F"></TextView>
+
+    <EditText
+        android:id="@+id/edUsername1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/prof_sahpe"
+        android:hint="اسم المستخدم"
+
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/edEmail1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/email"
+        android:hint="البريد الإلكتروني"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/edPassword1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:drawableEnd="@drawable/lock"
+        android:hint="كلمة المرور"
+        android:layout_marginBottom="20dp"
+        android:inputType="textPassword" />
+
+<!--    <EditText-->
+<!--        android:id="@+id/edConfirmPass"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:drawableEnd="@drawable/lock"-->
+<!--        android:hint="تأكيد كلمة المرور"-->
+<!--        android:inputType="textPassword" />-->
+</LinearLayout>

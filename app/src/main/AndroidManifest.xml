@@ -3,7 +3,9 @@
     package="com.example.mccproject">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,21 +13,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCCproject">
-        <activity android:name=".Activities.AddNews" ></activity>
-        <activity android:name=".Activities.SignIn" android:theme="@style/Theme.mcc">
+        <activity android:name=".Activities.EditProfile"></activity>
+        <activity android:name=".Activities.AddNews" />
+        <activity
+            android:name=".Activities.SignIn"
+            android:theme="@style/Theme.mcc">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.FormStatistics"></activity>
-        <activity android:name=".Activities.Detailes"></activity>
+        <activity android:name=".Activities.FormStatistics" />
+        <activity android:name=".Activities.Detailes" />
+        <activity
+            android:name=".Activities.SignUp"
+            android:theme="@style/Theme.mcc"></activity>
+        <activity android:name=".MainActivity" />
 
-        <activity android:name=".Activities.SignUp" android:theme="@style/Theme.mcc">
-
-        </activity>
-        <activity android:name=".MainActivity"></activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
