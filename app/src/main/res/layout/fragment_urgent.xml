@@ -5,16 +5,27 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/swipeRefresh_urgent">
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView1"
+        android:id="@+id/recycleView_urgent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
+<<<<<<< HEAD
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/itemnew" />
+=======
+        tools:listitem="@layout/urgent_item"
+
+        />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+>>>>>>> a6ad92f35f7317b7c03b8b5c3d027a696f5ff86f
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/flatAddNew"

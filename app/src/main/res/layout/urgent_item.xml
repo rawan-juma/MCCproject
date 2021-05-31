@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        android:id="@+id/cardView_urgent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -17,40 +17,34 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp">
+            android:layout_height="150dp">
 
-
-            <ProgressBar
-                android:id="@+id/loader"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_gravity="center"
-                />
-
-            <ImageView
-                android:id="@+id/image"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
-
-
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/gradient"/>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvTitle"
+                android:id="@+id/tvTitle_urgent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TITLE"
-                android:padding="10dp"
-                android:textSize="20dp"
                 android:fontFamily="@font/g_bold"
-                android:textColor="@color/white"
-                />
+                android:padding="5dp"
+                android:text="Title"
+                android:textColor="@color/black"
+                android:textSize="18dp" />
 
+            <TextView
+                android:id="@+id/tv_desc_urgent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="description"
+                android:padding="5dp"
+                android:textSize="12dp"
+                android:fontFamily="@font/roboto_thin"
+                android:textColor="#676767"
+                />
+</LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,7 +53,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvSource"
+                    android:id="@+id/tvSource_urgent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Author"
@@ -70,7 +64,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tvDate"
+                    android:id="@+id/tvDate_urgent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="5 hour ago"
@@ -84,5 +78,4 @@
         </FrameLayout>
 
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>
