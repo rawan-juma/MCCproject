@@ -10,10 +10,7 @@ import com.example.mccproject.R
 import com.example.mccproject.model.HistoryModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.history_item.view.*
-import kotlinx.android.synthetic.main.itemnew.view.cardView
-import kotlinx.android.synthetic.main.itemnew.view.image
-import kotlinx.android.synthetic.main.itemnew.view.tvDate
-import kotlinx.android.synthetic.main.itemnew.view.tvTitle
+
 
 
 class AddHistoryAdapter(var context:Context,var act: FragmentActivity, var data:MutableList<HistoryModel>)
