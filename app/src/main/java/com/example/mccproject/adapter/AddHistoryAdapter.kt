@@ -1,11 +1,14 @@
 package com.example.mccproject.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mccproject.Activities.HistoriNewsDetails
 import com.example.mccproject.R
 import com.example.mccproject.model.HistoryModel
 import com.squareup.picasso.Picasso
@@ -42,7 +45,10 @@ class AddHistoryAdapter(var context:Context,var act: FragmentActivity, var data:
         holder.tvAuthor.text = data[position].author
         holder.tvDate.text = data[position].date
         Picasso.with(context).load(data[position].image).into(holder.image)
-
+        holder.cardView.setOnClickListener {
+            var i = Intent(context, HistoriNewsDetails::class.java)
+            context.startActivity(i)
+        }
     }
 
 

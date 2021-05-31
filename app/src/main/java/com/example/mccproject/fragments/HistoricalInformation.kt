@@ -1,12 +1,14 @@
 package com.example.mccproject.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mccproject.Activities.HistoriNewsDetails
 import com.example.mccproject.R
 import com.example.mccproject.adapter.AddHistoryAdapter
 import com.example.mccproject.model.HistoryModel
@@ -14,7 +16,9 @@ import com.example.mccproject.model.HistoryModel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_form_statistics.*
 import kotlinx.android.synthetic.main.fragment_historical_information.*
+import kotlinx.android.synthetic.main.itemnew.view.*
 
 
 class HistoricalInformation : Fragment() {
@@ -31,6 +35,7 @@ class HistoricalInformation : Fragment() {
 //            var i = Intent(context, AddNews::class.java)
 //            startActivity(i)
 //        }
+
         return  root
     }
 
