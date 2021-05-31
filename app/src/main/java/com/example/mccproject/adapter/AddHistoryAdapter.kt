@@ -7,9 +7,12 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mccproject.R
 import com.example.mccproject.model.HistoryModel
-import com.example.mccproject.model.addnewsModel
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.itemnew.view.*
+import kotlinx.android.synthetic.main.history_item.view.*
+import kotlinx.android.synthetic.main.itemnew.view.cardView
+import kotlinx.android.synthetic.main.itemnew.view.image
+import kotlinx.android.synthetic.main.itemnew.view.tvDate
+import kotlinx.android.synthetic.main.itemnew.view.tvTitle
 
 class AddHistoryAdapter(var act: FragmentActivity, var data:MutableList<HistoryModel>)
     : RecyclerView.Adapter<AddHistoryAdapter.ViewHolder>() {

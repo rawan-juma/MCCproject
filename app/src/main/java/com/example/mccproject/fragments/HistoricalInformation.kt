@@ -7,20 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mccproject.Activities.AddNews
 import com.example.mccproject.R
 import com.example.mccproject.adapter.AddHistoryAdapter
-import com.example.mccproject.adapter.addnewsAdapter
 import com.example.mccproject.model.HistoryModel
-import com.example.mccproject.model.addnewsModel
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_historical_information.*
-import kotlinx.android.synthetic.main.fragment_latest_news.*
-import kotlinx.android.synthetic.main.fragment_urgent.*
-import kotlinx.android.synthetic.main.fragment_urgent.recycleView1
-import kotlinx.android.synthetic.main.fragment_urgent.view.*
 
 class HistoricalInformation : Fragment() {
 
