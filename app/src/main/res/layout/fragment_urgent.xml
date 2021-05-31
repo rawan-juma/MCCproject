@@ -14,30 +14,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical"
-<<<<<<< HEAD
+
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/itemnew" />
-=======
         tools:listitem="@layout/urgent_item"
-
         />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
->>>>>>> a6ad92f35f7317b7c03b8b5c3d027a696f5ff86f
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/flatAddNew"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:backgroundTint="@color/colorPrimary"
-        android:src="@drawable/ic_playlist_add_black_24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints"
-        android:layout_margin="15dp"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

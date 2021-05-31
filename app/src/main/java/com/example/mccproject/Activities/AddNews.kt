@@ -12,9 +12,7 @@ import android.util.Log
 import android.widget.Toast
 import com.example.mccproject.MainActivity
 import com.example.mccproject.R
-import com.example.mccproject.fragments.HistoricalInformation
-import com.example.mccproject.fragments.UrgentFragment
-import com.example.mccproject.model.addnewsModel
+
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase

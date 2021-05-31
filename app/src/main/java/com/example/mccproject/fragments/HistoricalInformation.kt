@@ -12,15 +12,12 @@ import com.example.mccproject.R
 import com.example.mccproject.adapter.AddHistoryAdapter
 import com.example.mccproject.adapter.addnewsAdapter
 import com.example.mccproject.model.HistoryModel
-import com.example.mccproject.model.addnewsModel
+
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_historical_information.*
-import kotlinx.android.synthetic.main.fragment_latest_news.*
-import kotlinx.android.synthetic.main.fragment_urgent.*
-import kotlinx.android.synthetic.main.fragment_urgent.recycleView1
-import kotlinx.android.synthetic.main.fragment_urgent.view.*
+
 
 class HistoricalInformation : Fragment() {
 
@@ -56,7 +53,7 @@ class HistoricalInformation : Fragment() {
                     }
                     recycleVi.layoutManager = LinearLayoutManager(activity!!)
                     recycleVi.setHasFixedSize(true)
-                    val HistoryAdapter = AddHistoryAdapter(activity!!, news)
+                    val HistoryAdapter = AddHistoryAdapter(activity!!,activity!!, news)
                     recycleVi.adapter = HistoryAdapter
 
                 }

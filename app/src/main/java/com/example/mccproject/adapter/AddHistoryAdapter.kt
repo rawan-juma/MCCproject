@@ -1,5 +1,6 @@
 package com.example.mccproject.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,11 +8,17 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mccproject.R
 import com.example.mccproject.model.HistoryModel
-import com.example.mccproject.model.addnewsModel
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.itemnew.view.*
 
-class AddHistoryAdapter(var act: FragmentActivity, var data:MutableList<HistoryModel>)
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.history_item.view.*
+import kotlinx.android.synthetic.main.itemnew.view.*
+import kotlinx.android.synthetic.main.itemnew.view.cardView
+import kotlinx.android.synthetic.main.itemnew.view.image
+import kotlinx.android.synthetic.main.itemnew.view.tvDate
+import kotlinx.android.synthetic.main.itemnew.view.tvTitle
+import java.lang.reflect.Array.get
+
+class AddHistoryAdapter(var context:Context,var act: FragmentActivity, var data:MutableList<HistoryModel>)
     : RecyclerView.Adapter<AddHistoryAdapter.ViewHolder>() {
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item)  {
@@ -36,7 +43,7 @@ class AddHistoryAdapter(var act: FragmentActivity, var data:MutableList<HistoryM
         holder.tvTitle.text = data[position].title
         holder.tvAuthor.text = data[position].author
         holder.tvDate.text = data[position].date
-        Picasso.get().load(data[position].image).into(holder.image)
+        Picasso.with(context).load(data[position].image).into(holder.image)
 
     }
 

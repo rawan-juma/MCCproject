@@ -42,61 +42,29 @@ class UrgentFragment : Fragment(){
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-<<<<<<< HEAD
+
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_urgent, container, false)
-        db = Firebase.firestore
-//        getAllNews()
-        root.flatAddNew.setOnClickListener {
-            var i = Intent(context, AddNews::class.java)
-            startActivity(i)
-=======
-//        // Inflate the layout for this fragment
-       val root = inflater.inflate(R.layout.fragment_urgent, container, false)
-        dialog = Dialog(activity!!)
 
-        root.recycleView_urgent.layoutManager = LinearLayoutManager(activity!!)
+            dialog = Dialog(activity!!)
+
+            root.recycleView_urgent.layoutManager = LinearLayoutManager(activity!!)
 
 
 
-        root.swipeRefresh_urgent.setOnRefreshListener {
-            retrieveJson(API_KEY,root)
->>>>>>> a6ad92f35f7317b7c03b8b5c3d027a696f5ff86f
+            root.swipeRefresh_urgent.setOnRefreshListener {
+                retrieveJson(API_KEY, root)
+
+            }
+            retrieveJson(API_KEY, root)
+
+            return root
+
+
         }
-        retrieveJson(API_KEY,root)
-
-        return root
 
 
 
-
-    }
-
-<<<<<<< HEAD
-//    fun getAllNews() {
-//        val news = mutableListOf<addnewsModel>()
-//        db!!.collection("News").get()
-//            .addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    for (document in task.result!!) {
-//                        val id = document.id
-//                        val data = document.data
-//                        val title = data["title"] as String
-//                        val author = data["author"] as String
-//                        val date = data["date"] as String
-//                        val image = data["image"] as String
-//                        val description = data["description"] as String
-//                        news.add(addnewsModel(id, title,author,date,description,image))
-//                    }
-//                    recycleView1.layoutManager = LinearLayoutManager(activity!!)
-//                    recycleView1.setHasFixedSize(true)
-//                    val NewsAdapter = addnewsAdapter(activity!!, news)
-//                    recycleView1.adapter = NewsAdapter
-//
-//                }
-//            }
-//    }
-=======
     fun retrieveJson(apiKey: String,root: View) {
 
         root.swipeRefresh_urgent.isRefreshing = true
@@ -114,7 +82,7 @@ class UrgentFragment : Fragment(){
                     recycleView_urgent.adapter = adapter
                 }
             }
->>>>>>> a6ad92f35f7317b7c03b8b5c3d027a696f5ff86f
+
 
             override fun onFailure(call: Call<Headlines?>?, t: Throwable) {
                 root.swipeRefresh_urgent.isRefreshing = false
