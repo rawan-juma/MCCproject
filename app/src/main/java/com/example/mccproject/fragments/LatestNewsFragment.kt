@@ -45,7 +45,7 @@ class LatestNewsFragment : Fragment(){
         root.rc_last_new.layoutManager = LinearLayoutManager(activity!!)
         var fromDatee: String? = null
         var toDatee: String? = null
-        root.btn_date.setOnClickListener {
+        root.btn_date_new.setOnClickListener {
 
             dialog!!.setContentView(R.layout.select_time_new_pop_up)
             dialog!!.show()
