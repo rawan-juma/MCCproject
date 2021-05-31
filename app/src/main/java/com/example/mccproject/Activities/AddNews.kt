@@ -6,13 +6,12 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mccproject.MainActivity
 import com.example.mccproject.R
-
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -21,12 +20,13 @@ import kotlinx.android.synthetic.main.activity_add_news.*
 import java.io.ByteArrayOutputStream
 import java.util.*
 
+
 class AddNews : AppCompatActivity() {
     private var fileURI: Uri?=null
     lateinit var db: FirebaseFirestore
     val TAG="raw"
     var idDoc=""
-    lateinit var progressDialog:ProgressDialog
+    lateinit var progressDialog: ProgressDialog
     private val PICK_IMAGE_REQUEST=111
     var imageURI: Uri?=null
     var path:String?=null
@@ -50,7 +50,7 @@ class AddNews : AppCompatActivity() {
         progressDialog.setMessage("جاري التحميل")
         progressDialog.setCancelable(false)
         imageViewadd.setOnClickListener {
-            val intent=Intent()
+            val intent= Intent()
             intent.action=Intent.ACTION_PICK
             intent.type="image/*"
             startActivityForResult(intent,PICK_IMAGE_REQUEST)
@@ -106,7 +106,7 @@ class AddNews : AppCompatActivity() {
                     progressDialog.dismiss()
 //                    supportFragmentManager.beginTransaction().replace(R.id.mainContainer,
 //                        HistoricalInformation()).commit()
-                    var i = Intent(this,MainActivity::class.java)
+                    var i = Intent(this, MainActivity::class.java)
                     startActivity(i)
                 }
 
