@@ -14,35 +14,36 @@ import com.example.mccproject.R
 import com.example.myapplication.Articles
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.itemnew.view.*
+import kotlinx.android.synthetic.main.itemnew.view.cardView
+import kotlinx.android.synthetic.main.urgent_item.view.*
 import org.ocpsoft.prettytime.PrettyTime
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class addnewsAdapter(var context: Context, articles: List<Articles>) :
-        RecyclerView.Adapter<addnewsAdapter.ViewHolder>() {
-    var articles: List<Articles>
+class UrgentAdapter(var context: Context, articles: List<Articles>) :
+    RecyclerView.Adapter<UrgentAdapter.ViewHolder>() {
+    var articles: List<Articles> = articles
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // val view: View = LayoutInflater.from(parent.context).inflate(R.layout.itemm, parent, false)
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.itemnew, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.urgent_item, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val a: Articles = articles[position]
-        val imageUrl: String? = a.urlToImage
-        Picasso.with(context).load(imageUrl).into(holder.imageView)
         holder.tvTitle.text = a.title
         holder.tvSource.text = a.source!!.name
+        holder.desc.text = a.description
         holder.tvDate.text = "\u2022" + dateTime(a.publishedAt)
         holder.cardView.setOnClickListener {
             val intent = Intent(context, DetailsApi::class.java)
             intent.putExtra("title", a.title)
             intent.putExtra("source", a.source!!.name)
             intent.putExtra("time", dateTime(a.publishedAt))
-            intent.putExtra("desc", a.description)
             intent.putExtra("imageUrl", a.urlToImage)
             intent.putExtra("url", a.url)
+            intent.putExtra("desc", a.description)
             context.startActivity(intent)
         }
     }
@@ -52,19 +53,13 @@ class addnewsAdapter(var context: Context, articles: List<Articles>) :
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var tvTitle: TextView
-        var tvSource: TextView
-        var tvDate: TextView
-        var imageView: ImageView
-        var cardView: CardView
 
-        init {
-            tvTitle = itemView.tvTitle
-            tvSource = itemView.tvSource
-            tvDate = itemView.tvDate
-            imageView = itemView.image
-            cardView = itemView.cardView
-        }
+          var  tvTitle = itemView.tvTitle_urgent
+          var   tvSource = itemView.tvSource_urgent
+          var  tvDate = itemView.tvDate_urgent
+          var  cardView = itemView.cardView_urgent
+        var desc = itemView.tv_desc_urgent
+
     }
 
     fun dateTime(t: String?): String? {
@@ -87,7 +82,4 @@ class addnewsAdapter(var context: Context, articles: List<Articles>) :
             return country.toLowerCase()
         }
 
-    init {
-        this.articles = articles
-    }
 }
