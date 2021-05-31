@@ -7,16 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.cloudfinal.adapter.newsAdapter
 import com.example.mccproject.Activities.Detailes
-import com.example.mccproject.Activities.SignIn
 import com.example.mccproject.R
+import com.example.mccproject.adapter.addnewsAdapter
 
 
 /**
  * A simple [Fragment] subclass.
  */
-class LatestNewsFragment : Fragment(),newsAdapter.onClick{
+class LatestNewsFragment : Fragment(), addnewsAdapter.onClick{
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

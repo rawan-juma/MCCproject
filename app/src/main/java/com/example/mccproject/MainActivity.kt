@@ -3,10 +3,7 @@ package com.example.mccproject
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.mccproject.fragments.LatestNewsFragment
-import com.example.mccproject.fragments.UrgentFragment
-import com.example.mccproject.fragments.ProfileFragment
-import com.example.mccproject.fragments.StatisticsFragment
+import com.example.mccproject.fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -26,6 +23,10 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navigation_urgent -> {
                     replaceFragment(UrgentFragment())
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.navigation_history -> {
+                    replaceFragment(HistoricalInformation())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_profile-> {

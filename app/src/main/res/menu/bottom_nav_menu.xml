@@ -17,6 +17,10 @@
         android:title="الاحصائيات" />
 
 
+    <item
+        android:id="@+id/navigation_history"
+        android:icon="@drawable/ic_baseline_history_edu_24"
+        android:title="تاريخ" />
 
     <item
         android:id="@+id/navigation_profile"

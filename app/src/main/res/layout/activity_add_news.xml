@@ -7,21 +7,22 @@
     tools:context=".Activities.AddNews">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageViewadd"
         android:layout_width="0dp"
         android:layout_height="280dp"
         android:scaleType="fitXY"
+        android:src="@drawable/add_img"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/add_img" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="14dp"
         android:layout_marginEnd="16dp"
         android:drawableStart="@drawable/title_icon"
         android:fontFamily="@font/roboto"
@@ -29,10 +30,26 @@
         android:drawablePadding="8sp"
         android:textSize="18sp"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewadd"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="@+id/imageViewadd"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewadd" />
+
+    <EditText
+        android:id="@+id/editTextAuthor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:drawableStart="@drawable/author"
+        android:drawablePadding="8sp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="الناشر"
+        android:inputType="text"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTitle"
+        app:layout_constraintStart_toStartOf="@+id/editTextTitle"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
 
     <EditText
         android:id="@+id/editTextDate"
@@ -40,47 +57,48 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:drawableStart="@drawable/date"
-        android:ems="10"
-        android:hint="تاريخ"
-        android:fontFamily="@font/roboto"
-        android:inputType="date"
         android:drawablePadding="8sp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="تاريخ"
+        android:inputType="date"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        />
+        app:layout_constraintEnd_toEndOf="@+id/editTextTitle"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextTitle"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAuthor" />
+
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextTextDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:hint="الوصف"
-        android:fontFamily="@font/roboto"
-        android:drawablePadding="8sp"
-        android:textSize="18sp"
         android:drawableStart="@drawable/details"
+        android:drawablePadding="8sp"
+        android:ems="10"
+        android:fontFamily="@font/roboto"
+        android:hint="الوصف"
+        android:inputType="textMultiLine"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextDate"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextDate"
         app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/addnews"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/btn_shape"
         android:fontFamily="@font/roboto"
         android:text="حفظ"
         android:textAllCaps="false"
         android:textSize="18sp"
-        android:background="@drawable/btn_shape"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
-
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextDescription"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextDescription"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextDescription" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

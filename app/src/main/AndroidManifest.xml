@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCCproject">
-        <activity android:name=".Activities.EditProfile"></activity>
+        <activity android:name=".Activities.History"></activity>
+        <activity android:name=".Activities.EditProfile" />
         <activity android:name=".Activities.AddNews" />
         <activity
             android:name=".Activities.SignIn"
@@ -28,7 +30,7 @@
         <activity android:name=".Activities.Detailes" />
         <activity
             android:name=".Activities.SignUp"
-            android:theme="@style/Theme.mcc"></activity>
+            android:theme="@style/Theme.mcc" />
         <activity android:name=".MainActivity" />
 
         <meta-data
