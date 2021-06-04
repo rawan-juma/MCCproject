@@ -39,7 +39,7 @@ class AddHistoryAdapter(var act: FragmentActivity, var data:MutableList<HistoryM
         holder.tvTitle.text = data[position].title
         holder.tvAuthor.text = data[position].author
         holder.tvDate.text = data[position].date
-        Picasso.get().load(data[position].image).into(holder.image)
+        Picasso.with(act).load(data[position].image).into(holder.image)
 
     }
 

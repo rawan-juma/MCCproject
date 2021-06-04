@@ -26,7 +26,6 @@ class HistoricalInformation : Fragment() {
         db = Firebase.firestore
         getAllNews()
 //        root.flatAddNew.setOnClickListener {
-//            var i = Intent(context, AddNews::class.java)
 //            startActivity(i)
 //        }
         return  root

@@ -38,11 +38,11 @@ class UrgentFragment : Fragment(){
     val API_KEY = "8ba1260833284db9bce1dcf04ab96845"
     var adapter: UrgentAdapter? = null
     var articles: List<Articles> = ArrayList()
+    var db: FirebaseFirestore? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-<<<<<<< HEAD
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_urgent, container, false)
         db = Firebase.firestore
@@ -50,30 +50,27 @@ class UrgentFragment : Fragment(){
         root.flatAddNew.setOnClickListener {
             var i = Intent(context, AddNews::class.java)
             startActivity(i)
-=======
 //        // Inflate the layout for this fragment
-       val root = inflater.inflate(R.layout.fragment_urgent, container, false)
-        dialog = Dialog(activity!!)
+            val root = inflater.inflate(R.layout.fragment_urgent, container, false)
+            dialog = Dialog(activity!!)
 
-        root.recycleView_urgent.layoutManager = LinearLayoutManager(activity!!)
+            root.recycleView_urgent.layoutManager = LinearLayoutManager(activity!!)
 
 
 
-        root.swipeRefresh_urgent.setOnRefreshListener {
-            retrieveJson(API_KEY,root)
->>>>>>> a6ad92f35f7317b7c03b8b5c3d027a696f5ff86f
+            root.swipeRefresh_urgent.setOnRefreshListener {
+                retrieveJson(API_KEY, root)
+            }
+            retrieveJson(API_KEY, root)
+
+
+
+
         }
-        retrieveJson(API_KEY,root)
-
         return root
-
-
-
-
     }
 
-<<<<<<< HEAD
-//    fun getAllNews() {
+        //    fun getAllNews() {
 //        val news = mutableListOf<addnewsModel>()
 //        db!!.collection("News").get()
 //            .addOnCompleteListener { task ->
@@ -96,32 +93,30 @@ class UrgentFragment : Fragment(){
 //                }
 //            }
 //    }
-=======
-    fun retrieveJson(apiKey: String,root: View) {
+        fun retrieveJson(apiKey: String, root: View) {
 
-        root.swipeRefresh_urgent.isRefreshing = true
-        val call: Call<Headlines?> = ApiClient.instance!!.api.getUrgentData(
-            "القدس", apiKey, "ar","publishedAt",15
-        )!!
+            root.swipeRefresh_urgent.isRefreshing = true
+            val call: Call<Headlines?> = ApiClient.instance!!.api.getUrgentData(
+                "القدس", apiKey, "ar", "publishedAt", 15
+            )!!
 
 
-        call.enqueue(object : Callback<Headlines?> {
-            override fun onResponse(call: Call<Headlines?>?, response: Response<Headlines?>) {
-                if (response.isSuccessful && response.body()!!.articles != null) {
-                    root.swipeRefresh_urgent.isRefreshing = false
-                    articles = response.body()!!.articles!!
-                    adapter = UrgentAdapter(activity!!, articles)
-                    recycleView_urgent.adapter = adapter
+            call.enqueue(object : Callback<Headlines?> {
+                override fun onResponse(call: Call<Headlines?>?, response: Response<Headlines?>) {
+                    if (response.isSuccessful && response.body()!!.articles != null) {
+                        root.swipeRefresh_urgent.isRefreshing = false
+                        articles = response.body()!!.articles!!
+                        adapter = UrgentAdapter(activity!!, articles)
+                        recycleView_urgent.adapter = adapter
+                    }
                 }
-            }
->>>>>>> a6ad92f35f7317b7c03b8b5c3d027a696f5ff86f
 
-            override fun onFailure(call: Call<Headlines?>?, t: Throwable) {
-                root.swipeRefresh_urgent.isRefreshing = false
-                Toast.makeText(activity!!, t.localizedMessage, Toast.LENGTH_SHORT).show()
-            }
-        })
+                override fun onFailure(call: Call<Headlines?>?, t: Throwable) {
+                    root.swipeRefresh_urgent.isRefreshing = false
+                    Toast.makeText(activity!!, t.localizedMessage, Toast.LENGTH_SHORT).show()
+                }
+            })
+        }
+
+
     }
-
-
-}
