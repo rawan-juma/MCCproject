@@ -52,7 +52,8 @@ class HistoricalInformation : Fragment() {
                         val date = data["date"] as String
                         val image = data["image"] as String
                         val description = data["description"] as String
-                        news.add(HistoryModel(id, title,author,date,description,image))
+                        val type = data["type"] as String
+                        news.add(HistoryModel(id, title,author,date,description,image,type))
                     }
                     recycleVi.layoutManager = LinearLayoutManager(activity!!)
                     recycleVi.setHasFixedSize(true)

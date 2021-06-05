@@ -34,7 +34,7 @@ class ProfileFragment : Fragment() {
         val root= inflater.inflate(R.layout.fragment_profile, container, false)
 
 
-        val sharedPreferences= activity!!.getSharedPreferences("shared", Context.MODE_PRIVATE)
+        val sharedPreferences= requireActivity().getSharedPreferences("shared", Context.MODE_PRIVATE)
         var name= sharedPreferences.getString("username","")
         root.username.text = name
         var email=sharedPreferences.getString("email","")

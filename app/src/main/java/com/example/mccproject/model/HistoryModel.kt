@@ -5,4 +5,4 @@ class HistoryModel(var id :String,
                      var author:String ="",
                      var date:String ="",
                      var description:String ="",
-                     var image:String?)
+                     var image:String? ,var type:String)

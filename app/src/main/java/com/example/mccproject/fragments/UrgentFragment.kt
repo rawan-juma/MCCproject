@@ -69,7 +69,7 @@ class UrgentFragment : Fragment(){
 
         root.swipeRefresh_urgent.isRefreshing = true
         val call: Call<Headlines?> = ApiClient.instance!!.api.getUrgentData(
-            "القدس", apiKey, "ar","publishedAt",15
+            "القدس", apiKey, "ar","publishedAt",7
         )!!
 
 

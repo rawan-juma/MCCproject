@@ -2,8 +2,10 @@ package com.example.mccproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.app.ActivityCompat.recreate
 import androidx.fragment.app.Fragment
 import com.example.mccproject.fragments.*
+import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         nav_view.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         nav_view.selectedItemId =R.id.navigation_home
+
 
     }
 
