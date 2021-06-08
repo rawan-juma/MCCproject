@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mccproject.MainActivity
@@ -57,6 +58,8 @@ class AddNews : AppCompatActivity() {
         btn_vi.setOnClickListener {
             uploadVideo()
             idDoc = "1"
+            video_view_add.visibility = View.VISIBLE
+            imageViewadd.visibility = View.GONE
         }
 
 
@@ -67,13 +70,16 @@ class AddNews : AppCompatActivity() {
         progressDialog= ProgressDialog(this)
         progressDialog.setMessage("جاري التحميل")
         progressDialog.setCancelable(false)
-        imageViewadd.setOnClickListener {
+        btn_img.setOnClickListener {
 
             idDoc ="2"
             val intent= Intent()
             intent.action=Intent.ACTION_PICK
             intent.type="image/*"
             startActivityForResult(intent,PICK_IMAGE_REQUEST)
+
+            video_view_add.visibility = View.GONE
+            imageViewadd.visibility = View.VISIBLE
         }
 
 

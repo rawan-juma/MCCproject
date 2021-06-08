@@ -24,19 +24,16 @@
         android:id="@+id/editTextTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="300dp"
         android:drawableStart="@drawable/title_icon"
+        android:drawablePadding="8sp"
         android:fontFamily="@font/roboto"
         android:hint="العنوان"
-        android:drawablePadding="8sp"
-        android:textSize="18sp"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewadd"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageViewadd"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewadd" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextAuthor"
@@ -102,23 +99,40 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextTextDescription"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextDescription" />
+
     <com.google.android.exoplayer2.ui.PlayerView
         android:id="@+id/video_view_add"
         android:layout_width="0dp"
         android:layout_height="280dp"
-        app:layout_constraintEnd_toEndOf="@+id/addnews"
-        app:layout_constraintStart_toStartOf="@+id/addnews"
-        app:layout_constraintTop_toBottomOf="@+id/addnews" >
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btn_vi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="152dp"
-            android:layout_marginEnd="152dp"
-            android:text="Add Video"
-            android:textAllCaps="false" />
+
     </com.google.android.exoplayer2.ui.PlayerView>
+
+    <Button
+        android:id="@+id/btn_vi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Video"
+        android:textAllCaps="false"
+        android:layout_marginStart="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.26" />
+
+    <Button
+        android:id="@+id/btn_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add image"
+        android:textAllCaps="false"
+        android:layout_marginStart="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_vi"
+        app:layout_constraintStart_toEndOf="@+id/btn_vi"
+        app:layout_constraintTop_toTopOf="@+id/btn_vi" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.core.widget.NestedScrollView>
