@@ -14,9 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCCproject">
+
+
         <activity android:name=".Activities.EditProfile" />
+
         <activity android:name=".Activities.HistoriNewsDetails"></activity>
         <activity android:name=".Activities.DetailsApi" />
+
+
         <activity android:name=".Activities.AddNews" />
         <activity
             android:name=".Activities.SignIn"

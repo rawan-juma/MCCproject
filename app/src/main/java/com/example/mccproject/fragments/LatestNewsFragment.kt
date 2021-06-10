@@ -45,7 +45,7 @@ class LatestNewsFragment : Fragment(){
         root.rc_last_new.layoutManager = LinearLayoutManager(activity!!)
         var fromDatee: String? = null
         var toDatee: String? = null
-        root.btn_date.setOnClickListener {
+        root.btn_date_new.setOnClickListener {
 
             dialog!!.setContentView(R.layout.select_time_new_pop_up)
             dialog!!.show()
@@ -64,7 +64,7 @@ class LatestNewsFragment : Fragment(){
             btnClose.setOnClickListener { dialog!!.dismiss() }
         }
 
-        root.swipeRefresh.setOnRefreshListener {
+        root.swipe_refresh_last_news.setOnRefreshListener {
             retrieveJson(API_KEY, fromDatee, toDatee,root)
         }
         retrieveJson(API_KEY, fromDatee, toDatee,root)
@@ -78,7 +78,7 @@ class LatestNewsFragment : Fragment(){
 
     fun retrieveJson(apiKey: String, fromDate: String?, toDate: String?,root: View) {
 
-        root.swipeRefresh.isRefreshing = true
+        root.swipe_refresh_last_news.isRefreshing = true
         val call: Call<Headlines?> = ApiClient.instance!!.api.getSpecificData(
             "القدس", fromDate, toDate, apiKey, "ar"
         )!!
@@ -87,7 +87,7 @@ class LatestNewsFragment : Fragment(){
         call.enqueue(object : Callback<Headlines?> {
             override fun onResponse(call: Call<Headlines?>?, response: Response<Headlines?>) {
                 if (response.isSuccessful && response.body()!!.articles != null) {
-                    root.swipeRefresh.isRefreshing = false
+                    root.swipe_refresh_last_news.isRefreshing = false
                     articles = response.body()!!.articles!!
                     adapter = addnewsAdapter(activity!!, articles)
                     rc_last_new.adapter = adapter
@@ -95,7 +95,7 @@ class LatestNewsFragment : Fragment(){
             }
 
             override fun onFailure(call: Call<Headlines?>?, t: Throwable) {
-                root.swipeRefresh.isRefreshing = false
+                root.swipe_refresh_last_news.isRefreshing = false
                 Toast.makeText(activity!!, t.localizedMessage, Toast.LENGTH_SHORT).show()
             }
         })

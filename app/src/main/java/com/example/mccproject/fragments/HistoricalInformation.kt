@@ -1,5 +1,6 @@
 package com.example.mccproject.fragments
 
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,13 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.mccproject.Activities.HistoriNewsDetails
 import com.example.mccproject.R
 import com.example.mccproject.adapter.AddHistoryAdapter
 import com.example.mccproject.model.HistoryModel
+
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_form_statistics.*
 import kotlinx.android.synthetic.main.fragment_historical_information.*
+import kotlinx.android.synthetic.main.itemnew.view.*
+
 
 class HistoricalInformation : Fragment() {
 
@@ -28,6 +34,7 @@ class HistoricalInformation : Fragment() {
 //        root.flatAddNew.setOnClickListener {
 //            startActivity(i)
 //        }
+
         return  root
     }
 
@@ -48,7 +55,7 @@ class HistoricalInformation : Fragment() {
                     }
                     recycleVi.layoutManager = LinearLayoutManager(activity!!)
                     recycleVi.setHasFixedSize(true)
-                    val HistoryAdapter = AddHistoryAdapter(activity!!, news)
+                    val HistoryAdapter = AddHistoryAdapter(activity!!,activity!!, news)
                     recycleVi.adapter = HistoryAdapter
 
                 }

@@ -38,85 +38,58 @@ class UrgentFragment : Fragment(){
     val API_KEY = "8ba1260833284db9bce1dcf04ab96845"
     var adapter: UrgentAdapter? = null
     var articles: List<Articles> = ArrayList()
-    var db: FirebaseFirestore? = null
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_urgent, container, false)
-        db = Firebase.firestore
-//        getAllNews()
-        root.flatAddNew.setOnClickListener {
-            var i = Intent(context, AddNews::class.java)
-            startActivity(i)
-//        // Inflate the layout for this fragment
-            val root = inflater.inflate(R.layout.fragment_urgent, container, false)
-            dialog = Dialog(activity!!)
 
-            root.recycleView_urgent.layoutManager = LinearLayoutManager(activity!!)
+        dialog = Dialog(activity!!)
+
+        root.recycleView_urgent.layoutManager = LinearLayoutManager(activity!!)
 
 
 
-            root.swipeRefresh_urgent.setOnRefreshListener {
-                retrieveJson(API_KEY, root)
-            }
+        root.swipeRefresh_urgent.setOnRefreshListener {
             retrieveJson(API_KEY, root)
 
-
-
-
         }
+        retrieveJson(API_KEY, root)
+
         return root
+
+
     }
 
-        //    fun getAllNews() {
-//        val news = mutableListOf<addnewsModel>()
-//        db!!.collection("News").get()
-//            .addOnCompleteListener { task ->
-//                if (task.isSuccessful) {
-//                    for (document in task.result!!) {
-//                        val id = document.id
-//                        val data = document.data
-//                        val title = data["title"] as String
-//                        val author = data["author"] as String
-//                        val date = data["date"] as String
-//                        val image = data["image"] as String
-//                        val description = data["description"] as String
-//                        news.add(addnewsModel(id, title,author,date,description,image))
-//                    }
-//                    recycleView1.layoutManager = LinearLayoutManager(activity!!)
-//                    recycleView1.setHasFixedSize(true)
-//                    val NewsAdapter = addnewsAdapter(activity!!, news)
-//                    recycleView1.adapter = NewsAdapter
-//
-//                }
-//            }
-//    }
-        fun retrieveJson(apiKey: String, root: View) {
-
-            root.swipeRefresh_urgent.isRefreshing = true
-            val call: Call<Headlines?> = ApiClient.instance!!.api.getUrgentData(
-                "القدس", apiKey, "ar", "publishedAt", 15
-            )!!
 
 
-            call.enqueue(object : Callback<Headlines?> {
-                override fun onResponse(call: Call<Headlines?>?, response: Response<Headlines?>) {
-                    if (response.isSuccessful && response.body()!!.articles != null) {
-                        root.swipeRefresh_urgent.isRefreshing = false
-                        articles = response.body()!!.articles!!
-                        adapter = UrgentAdapter(activity!!, articles)
-                        recycleView_urgent.adapter = adapter
-                    }
-                }
+    fun retrieveJson(apiKey: String,root: View) {
 
-                override fun onFailure(call: Call<Headlines?>?, t: Throwable) {
+        root.swipeRefresh_urgent.isRefreshing = true
+        val call: Call<Headlines?> = ApiClient.instance!!.api.getUrgentData(
+                "القدس", apiKey, "ar","publishedAt",7
+        )!!
+
+
+        call.enqueue(object : Callback<Headlines?> {
+            override fun onResponse(call: Call<Headlines?>?, response: Response<Headlines?>) {
+                if (response.isSuccessful && response.body()!!.articles != null) {
                     root.swipeRefresh_urgent.isRefreshing = false
-                    Toast.makeText(activity!!, t.localizedMessage, Toast.LENGTH_SHORT).show()
+                    articles = response.body()!!.articles!!
+                    adapter = UrgentAdapter(activity!!, articles)
+                    recycleView_urgent.adapter = adapter
                 }
-            })
-        }
+            }
 
 
+            override fun onFailure(call: Call<Headlines?>?, t: Throwable) {
+                root.swipeRefresh_urgent.isRefreshing = false
+                Toast.makeText(activity!!, t.localizedMessage, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
+
+
+}
