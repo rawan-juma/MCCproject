@@ -16,10 +16,10 @@ class FormStatistics : AppCompatActivity() {
         setContentView(R.layout.activity_form_statistics)
         supportActionBar!!.title="تعديل الإحصائيات"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        spinnerStatistics()
+
         btn_save_pie_chart.setOnClickListener {
             static()
-            spinnerStatistics()
-
             supportFragmentManager.beginTransaction().replace(R.id.mainContainer, StatisticsFragment()).commit()
 
         }
@@ -42,7 +42,6 @@ class FormStatistics : AppCompatActivity() {
         statics["typestatic"] = typestatic
 
         fb.collection("statistics")
-                // add items
                 .add(statics)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Add success", Toast.LENGTH_LONG).show()
