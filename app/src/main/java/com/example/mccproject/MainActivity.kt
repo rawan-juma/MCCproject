@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.core.app.ActivityCompat.recreate
 import androidx.fragment.app.Fragment
 import com.example.mccproject.fragments.*
+import com.example.mccproject.model.VideoService
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -53,4 +54,6 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.mainContainer,
             fragment).commit()
     }
+
+
 }

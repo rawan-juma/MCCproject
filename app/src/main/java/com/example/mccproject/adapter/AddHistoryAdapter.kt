@@ -25,11 +25,7 @@ import kotlinx.android.synthetic.main.history_item.view.*
 
 class AddHistoryAdapter(var context:Context,var act: FragmentActivity, var data:MutableList<HistoryModel>)
     : RecyclerView.Adapter<AddHistoryAdapter.ViewHolder>() {
-    var videoPath = ""
     var playerr: SimpleExoPlayer? =null
-    private var playReady =true
-    private  var currentWindow = 0
-    private var playedPostion:Long = 0
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item)  {
         val tvTitle = item.tvTitle
         val tvSourceHist = item.tvSourceHist
@@ -37,6 +33,7 @@ class AddHistoryAdapter(var context:Context,var act: FragmentActivity, var data:
         val image = item.image
         val cardView = item.cardView
         val vedio = item.video_view_rc
+
 
     }
 
@@ -61,8 +58,7 @@ class AddHistoryAdapter(var context:Context,var act: FragmentActivity, var data:
                 var uri = Uri.parse(data[position].image)
                 var dataSource = DefaultDataSourceFactory(context,"exoplayer-codelab")
                 var mediaSource : MediaSource = ProgressiveMediaSource.Factory(dataSource).createMediaSource(uri)
-                playerr!!.playWhenReady = playReady
-                playerr!!.seekTo(currentWindow,playedPostion)
+
                 playerr!!.prepare(mediaSource,false,false)
 holder.image.visibility = View.GONE
             holder.vedio.visibility = View.VISIBLE
@@ -76,6 +72,7 @@ holder.image.visibility = View.GONE
 
         holder.cardView.setOnClickListener {
             var i = Intent(context, HistoriNewsDetails::class.java)
+
             i.putExtra("image", data[position].image)
             i.putExtra("title", data[position].title)
             i.putExtra("author", data[position].author)
@@ -86,10 +83,6 @@ holder.image.visibility = View.GONE
         }
     }
 
-
-    interface onClick {
-        fun onClickItem(position: Int)
-    }
 
 
 
