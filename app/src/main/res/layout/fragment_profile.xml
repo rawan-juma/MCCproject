@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:theme="@style/Theme.mcc"
->
+    android:theme="@style/Theme.mcc">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,16 +21,25 @@
             android:background="@drawable/prof_sahpe"
             android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
+<!--            <de.hdodenhof.circleimageview.CircleImageView-->
 
+<!--                android:id="@+id/profile_image"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="150dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:src="@drawable/pro"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                />-->
+
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/profile_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:src="@drawable/pro"
-                android:layout_marginTop="20dp"
-                android:layout_centerHorizontal="true"
-                />
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_fileName="user_profile.json" />
 
             <TextView
                 android:id="@+id/username"
@@ -131,6 +140,7 @@
         android:text="إضـافة خبـر"
         android:textSize="22dp"
         android:textStyle="bold"/>
+
     <!--    <Button-->
 <!--        android:id="@+id/btnAddNews"-->
 <!--        android:layout_width="300dp"-->

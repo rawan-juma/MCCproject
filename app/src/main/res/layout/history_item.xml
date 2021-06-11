@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -31,24 +31,37 @@
                 android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:visibility="gone"
                 android:scaleType="centerCrop" />
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/video_view_rc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="@+id/addnews"
+                app:layout_constraintStart_toStartOf="@+id/addnews"
+                app:layout_constraintTop_toBottomOf="@+id/addnews"/>
 
 
             <ImageView
+                android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/gradient" />
 
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TITLE"
-                android:padding="10dp"
-                android:textSize="20dp"
-                android:fontFamily="@font/g_bold"
-                android:textColor="@color/white"
-                />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TITLE"
+        android:padding="10dp"
+        android:textSize="20dp"
+        android:fontFamily="@font/g_bold"
+        android:textColor="@color/white"
+        />
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,28 +69,58 @@
                 android:padding="10dp"
                 android:layout_gravity="bottom"
                 android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/tvSourceHist"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/g_light"
-                    android:text="Author"
-                    android:textColor="@color/white"
-                    android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvDateHist"
+                    <TextView
+                        android:id="@+id/tvSourceHist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/g_light"
+                        android:text="Author name"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvDateHist"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5 hour ago"
+                        android:gravity="right"
+                        android:textSize="15dp"
+                        android:fontFamily="@font/g_light"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/updateBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="5 hour ago"
-                    android:gravity="right"
-                    android:textSize="15dp"
-                    android:fontFamily="@font/g_light"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    />
+                    android:padding="10dp"
+                    android:layout_marginStart="200dp"
+                    android:background="@drawable/ic_baseline_edit_24"
+                    >
+                </ImageView>
+                <ImageView
+                    android:id="@+id/deleteBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_marginStart="10dp"
+                    android:background="@drawable/ic_baseline_delete_24"
+                    >
+                </ImageView>
+                <TextView
+                    android:id="@+id/txt"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp">
+                </TextView>
             </LinearLayout>
         </FrameLayout>
 

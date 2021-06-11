@@ -12,9 +12,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.mccproject.Activities.AddNews
 import com.example.mccproject.R
+import kotlinx.android.synthetic.main.activity_add_news.*
 import kotlinx.android.synthetic.main.activity_edit_profile.view.*
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -34,15 +37,21 @@ class ProfileFragment : Fragment() {
         val root= inflater.inflate(R.layout.fragment_profile, container, false)
 
 
-        val sharedPreferences= activity!!.getSharedPreferences("shared", Context.MODE_PRIVATE)
+        val sharedPreferences= requireActivity().getSharedPreferences("shared", Context.MODE_PRIVATE)
         var name= sharedPreferences.getString("username","")
         root.username.text = name
         var email=sharedPreferences.getString("email","")
         root.useremail.text = email
-        var pass=sharedPreferences.getString("passSignUp","")
-//        edPassword.setText("$pass")
 
-
+        if(email.equals("admin@gmail.com")){
+            var play = root.button3
+            play.isClickable=false
+            play.visibility=View.VISIBLE
+        }else{
+            var play = root.button3
+            play.isClickable=false
+            play.visibility=View.INVISIBLE
+        }
 //        root.profile_image.setImageURI(Uri.parse(imageURI))
 //
 //        root.profile_image.setOnClickListener{

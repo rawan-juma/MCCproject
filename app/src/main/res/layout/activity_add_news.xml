@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.AddNews">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageViewadd"
@@ -22,18 +25,17 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="310dp"
         android:layout_marginEnd="16dp"
         android:drawableStart="@drawable/title_icon"
+        android:drawablePadding="8sp"
         android:fontFamily="@font/roboto"
         android:hint="العنوان"
-        android:drawablePadding="8sp"
-        android:textSize="18sp"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewadd"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/imageViewadd"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewadd" />
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextAuthor"
@@ -100,5 +102,47 @@
         app:layout_constraintStart_toStartOf="@+id/editTextTextDescription"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextDescription" />
 
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/video_view_add"
+        android:layout_width="0dp"
+        android:layout_height="280dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+
+    </com.google.android.exoplayer2.ui.PlayerView>
+
+    <ImageButton
+        android:id="@+id/btn_vi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/btn_shape"
+        android:padding="10dp"
+        android:src="@drawable/video_icon"
+
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.44" />
+
+    <ImageButton
+        android:id="@+id/btn_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add image"
+        android:textAllCaps="false"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/btn_shape"
+        android:padding="10dp"
+        android:src="@drawable/add_image"
+
+        app:layout_constraintBottom_toBottomOf="@+id/btn_vi"
+        app:layout_constraintStart_toEndOf="@+id/btn_vi"
+        app:layout_constraintTop_toTopOf="@+id/btn_vi" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>
