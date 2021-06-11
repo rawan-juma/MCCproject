@@ -1,9 +1,11 @@
 package com.example.mccproject.Activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import com.example.mccproject.MainActivity
 import com.example.mccproject.R
 import com.example.mccproject.fragments.StatisticsFragment
 import com.google.firebase.firestore.FirebaseFirestore
@@ -16,18 +18,18 @@ class FormStatistics : AppCompatActivity() {
         setContentView(R.layout.activity_form_statistics)
         supportActionBar!!.title="تعديل الإحصائيات"
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        spinnerStatistics()
+       // spinnerStatistics()
 
         btn_save_pie_chart.setOnClickListener {
             static()
-            supportFragmentManager.beginTransaction().replace(R.id.mainContainer, StatisticsFragment()).commit()
+            startActivity(Intent(this, MainActivity::class.java))
 
         }
 
-        btn_save_pie_chart.setOnClickListener {
-            //  var i = Intent(this,MainActivity::class.java)
-            //   startActivity(i)
-        }
+//        btn_save_pie_chart.setOnClickListener {
+//            //  var i = Intent(this,MainActivity::class.java)
+//            //   startActivity(i)
+//        }
 
 
     }
@@ -35,7 +37,6 @@ class FormStatistics : AppCompatActivity() {
     private  fun static(){
         val statictNum = et_nums_pie_chart.text.toString()
         val typestatic = sp_title_statices_pie.selectedItem.toString()
-        val fb = FirebaseFirestore.getInstance()
 
         val statics: MutableMap<String, Any> = HashMap()
         statics["statictNum"] = statictNum
@@ -54,25 +55,24 @@ class FormStatistics : AppCompatActivity() {
 
 
 
-        private fun spinnerStatistics() {
-        val statistics: MutableList<String> = ArrayList()
-
-        fb.collection("type")
-            .get()
-            .addOnCompleteListener { querySnapshot ->
-                if (querySnapshot.isSuccessful) {
-                    for (document in querySnapshot.result!!) {
-                        val data = document.data
-                        val typestatic = data["typestatic"] as String?
-
-                        statistics.add(typestatic!!)
-
-                    }
-                }
-                val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, statistics)
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                sp_title_statices_pie.adapter = adapter
-
-            }
-    }
+//        private fun spinnerStatistics() {
+//        val statistics: MutableList<String> = ArrayList()
+//
+//            fb.collection("statistics")
+//            .get()
+//            .addOnCompleteListener { querySnapshot ->
+//                if (querySnapshot.isSuccessful) {
+//                    for (document in querySnapshot.result!!) {
+//                        val data = document.data
+//                        val typestatic = data["typestatic"] as String?
+//                        statistics.add(typestatic!!)
+//
+//                    }
+//                }
+//                val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, statistics)
+//                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+//                sp_title_statices_pie.adapter = adapter
+//
+//            }
+//    }
 }
