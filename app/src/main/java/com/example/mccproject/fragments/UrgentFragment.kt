@@ -39,29 +39,29 @@ class UrgentFragment : Fragment(){
     var adapter: UrgentAdapter? = null
     var articles: List<Articles> = ArrayList()
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_urgent, container, false)
 
-            dialog = Dialog(activity!!)
+        dialog = Dialog(activity!!)
 
-            root.recycleView_urgent.layoutManager = LinearLayoutManager(activity!!)
+        root.recycleView_urgent.layoutManager = LinearLayoutManager(activity!!)
 
 
 
-            root.swipeRefresh_urgent.setOnRefreshListener {
-                retrieveJson(API_KEY, root)
-
-            }
+        root.swipeRefresh_urgent.setOnRefreshListener {
             retrieveJson(API_KEY, root)
 
-            return root
-
-
         }
+        retrieveJson(API_KEY, root)
+
+        return root
+
+
+    }
 
 
 
@@ -69,8 +69,7 @@ class UrgentFragment : Fragment(){
 
         root.swipeRefresh_urgent.isRefreshing = true
         val call: Call<Headlines?> = ApiClient.instance!!.api.getUrgentData(
-            "القدس", apiKey, "ar","publishedAt",7
-        )!!
+                "القدس", apiKey, "ar","publishedAt",7)!!
 
 
         call.enqueue(object : Callback<Headlines?> {
