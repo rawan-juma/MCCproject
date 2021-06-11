@@ -1,15 +1,11 @@
 package com.example.mccproject.Activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.example.mccproject.MainActivity
 import com.example.mccproject.R
 import com.example.mccproject.fragments.StatisticsFragment
-import com.example.mccproject.model.HistoryModel
-import com.example.mccproject.model.Statistics
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_form_statistics.*
 
@@ -67,7 +63,6 @@ class FormStatistics : AppCompatActivity() {
             .addOnCompleteListener { querySnapshot ->
                 if (querySnapshot.isSuccessful) {
                     for (document in querySnapshot.result!!) {
-                        val id = document.id
                         val data = document.data
                         val typestatic = data["typestatic"] as String?
 
