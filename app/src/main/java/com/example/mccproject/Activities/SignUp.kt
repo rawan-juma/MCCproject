@@ -27,7 +27,7 @@ class SignUp : AppCompatActivity() {
                     Toast.makeText(this, "Added Successfully", Toast.LENGTH_SHORT).show()
 
 
-                        val sharedprf= getSharedPreferences("shared", MODE_PRIVATE)
+                        val sharedprf= getSharedPreferences("sharedd", MODE_PRIVATE)
                         val editor=sharedprf.edit()
                         editor.putString("username",edUsername.text.toString())
                         editor.putString("email",edEmail.text.toString())
