@@ -3,16 +3,27 @@ package com.example.mccproject.Activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+import com.android.volley.AuthFailureError
+import com.android.volley.RequestQueue
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.mccproject.MainActivity
 import com.example.mccproject.R
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.activity_sign_in.edEmail
 import kotlinx.android.synthetic.main.activity_sign_in.edPassword
 import kotlinx.android.synthetic.main.activity_sign_up.*
+import org.json.JSONException
+import org.json.JSONObject
+import java.io.UnsupportedEncodingException
 
 class SignIn : AppCompatActivity() {
+    var requestQueue: RequestQueue? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
@@ -50,11 +61,43 @@ class SignIn : AppCompatActivity() {
                 editor.apply()
                 var i = Intent(this,MainActivity::class.java)
                 startActivity(i)
+
             }
+            getRegToken(edEmail.text.toString(),edPassword.text.toString())
         }
         register.setOnClickListener {
+
             var i = Intent(this,SignUp::class.java)
             startActivity(i)
         }
     }
-}
+
+
+
+    private fun getRegToken(emaill:String,pass:String) {
+        FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.e("dna", "Failed to get token ${task.exception}")
+
+                return@addOnCompleteListener
+            }
+            val token = task.result
+            val data = "{" +
+
+                    "\"email\"" + ":" + "\"" + emaill + "\"," +
+                    "\"password\"" + ":" + "\"" + pass + "\"" +
+                    "\"reg_token\"" + ":" + "\"" + token!! + "\"," +
+                    "}"
+
+               try {
+                                Log.d("quds", "savedata: $data")
+                                if (data == null) null else data.toByteArray(charset("utf-8"))
+                            } catch (uee: UnsupportedEncodingException) {
+                                null
+                            }!!
+                        }
+
+
+
+        }
+    }

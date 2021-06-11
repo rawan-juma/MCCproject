@@ -38,11 +38,13 @@ class AddNews : AppCompatActivity() {
     lateinit var progressDialog: ProgressDialog
     private val PICK_IMAGE_REQUEST=111
     var imageURI: Uri?=null
-    private var filePath:Uri?=null
+
     var playerr: SimpleExoPlayer? =null
     private var playReady =true
     private  var currentWindow = 0
     private var playedPostion:Long = 0
+    private var filePath: Uri?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_news)
@@ -77,7 +79,7 @@ class AddNews : AppCompatActivity() {
             intent.action=Intent.ACTION_PICK
             intent.type="image/*"
             startActivityForResult(intent,PICK_IMAGE_REQUEST)
-
+             releaseVideo()
             video_view_add.visibility = View.GONE
             imageViewadd.visibility = View.VISIBLE
         }
@@ -240,10 +242,9 @@ class AddNews : AppCompatActivity() {
         startActivityForResult(Intent.createChooser(intent, "Select Video"), 1)
     }
 
-
-
-    fun initVideo(){
+    fun initVideo( ){
         playerr= ExoPlayerFactory.newSimpleInstance(this)
+
         video_view_add.player =playerr!!
         var uri = filePath
         var dataSource = DefaultDataSourceFactory(this,"exoplayer-codelab")
@@ -264,6 +265,8 @@ class AddNews : AppCompatActivity() {
         }
     }
 
+
+
     override fun onStart() {
         super.onStart()
         initVideo()
@@ -273,7 +276,7 @@ class AddNews : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         if (playerr != null) {
-            initVideo()
+         initVideo()
         }
     }
 
