@@ -2,6 +2,10 @@
     <string name="app_name">نبض القدس</string>
     <string-array name="titles">
         <item>الاعتقالات</item>
+        <item>الشهداء</item>
+        <item>حجز المنازل</item>
+        <item>هدم المنازل</item>
+
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
