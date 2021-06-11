@@ -43,7 +43,7 @@ class SignIn : AppCompatActivity() {
                 Toast.makeText(this, "No admin", Toast.LENGTH_SHORT).show()
                 val sharedprf= getSharedPreferences("shared", MODE_PRIVATE)
                 val editor=sharedprf.edit()
-                editor.putString("username",sharedprf.getString("username","No Data"))
+                editor.putString("username",username)
                 editor.putString("email",edEmail.text.toString())
                 editor.putString("passSignIn",edPassword.text.toString())
                 editor.commit()
