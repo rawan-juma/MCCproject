@@ -103,38 +103,43 @@ class StatisticsFragment : Fragment() {
                             //count++
                             staticN += statictNum.toFloat()
                             //  H = staticN /4f*100
-                            piechart.addPieSlice(PieModel("حجز المنازل", staticN, Color.parseColor("#CDA67F")))
+
                             Log.e("hhhhh", "///////////////+$staticN")
 
                         } else if (typestatic == "الشهداء") {
                             //count++
                             staticS += statictNum.toFloat()
                             //  S = staticS /4f*100
-                            piechart.addPieSlice(PieModel("الشهداء", staticS, Color.parseColor("#FE6DA8")))
+
                             Log.e("sssssss", "///////////////+$staticS")
 
                         } else if (typestatic == "الاعتقالات") {
                             // count++
                             staticA += statictNum.toFloat()
                             //  A = staticA /4f*100
-                            piechart.addPieSlice(PieModel("الاعتقالات", staticA, Color.parseColor("#56B7F1")))
+
                             Log.e("aaaaaaaaa", "///////////////+$staticA")
 
                         } else if (typestatic == "هدم المنازل") {
                             //count++
                             staticD += statictNum.toFloat()
                             //  D = staticD/4f*100
-                            piechart.addPieSlice(PieModel("هدم المنازل", staticD, Color.parseColor("#FED70E")))
+
                             Log.e("DDDDDD", "///////////////+$staticD")
 
 
                         }
-                        piechart.startAnimation()
+
                         statistics.add(statisticsModel(id, typestatic, statictNum))
                     }
-
+                    piechart.addPieSlice(PieModel("حجز المنازل", staticN, Color.parseColor("#CDA67F")))
+                    piechart.addPieSlice(PieModel("الشهداء", staticS, Color.parseColor("#FE6DA8")))
+                    piechart.addPieSlice(PieModel("الاعتقالات", staticA, Color.parseColor("#56B7F1")))
+                    piechart.addPieSlice(PieModel("هدم المنازل", staticD, Color.parseColor("#FED70E")))
+                    piechart.startAnimation()
                 }
             }
+
     }
 
 
