@@ -21,8 +21,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_details_api.*
 import kotlinx.android.synthetic.main.activity_histori_news_details.*
 import kotlinx.android.synthetic.main.history_item.*
+import petrov.kristiyan.colorpicker.ColorPicker
 import java.nio.file.Paths.get
 
 class HistoriNewsDetails : AppCompatActivity() {
@@ -38,9 +40,35 @@ class HistoriNewsDetails : AppCompatActivity() {
         setContentView(R.layout.activity_histori_news_details)
         db = Firebase.firestore
         color.setOnClickListener {
+            val colorPicker = ColorPicker(this)
+            colorPicker.show()
+            colorPicker.setOnChooseColorListener(object : ColorPicker.OnChooseColorListener {
+                override fun onChooseColor(position: Int, color: Int) {
+                    tvTitleHistori.setTextColor(color)
+                    //  tvTitleHistori.setBackgroundColor(Color.parseColor("#FF018786"))
+                }
+
+                override fun onCancel() {
+                    // put code
+                }
+            })
             tvTitleHistori.text
             tvTitleHistori.setTextSize(18f)
-            tvTitleHistori.setBackgroundColor(Color.parseColor("#FF018786"))
+
+        }
+        tvDescHistori.setOnClickListener {
+            val colorPicker = ColorPicker(this)
+            colorPicker.show()
+            colorPicker.setOnChooseColorListener(object : ColorPicker.OnChooseColorListener {
+                override fun onChooseColor(position: Int, color: Int) {
+                   tvDescHistori.setTextColor(color)
+                    //  tvTitleHistori.setBackgroundColor(Color.parseColor("#FF018786"))
+                }
+
+                override fun onCancel() {
+                    // put code
+                }
+            })
         }
           var type = intent.getStringExtra("type")
         var x= intent.getStringExtra("image")

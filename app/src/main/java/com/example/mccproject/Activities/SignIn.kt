@@ -6,6 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 600eb5307d1e818a3f060ec28212a758569197c1
 import com.example.mccproject.MainActivity
 import com.example.mccproject.R
 import com.google.firebase.messaging.FirebaseMessaging
@@ -13,11 +18,14 @@ import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.activity_sign_in.edEmail
 import kotlinx.android.synthetic.main.activity_sign_in.edPassword
 import kotlinx.android.synthetic.main.activity_sign_up.*
-import org.json.JSONException
-import org.json.JSONObject
+
 import java.io.UnsupportedEncodingException
 
 class SignIn : AppCompatActivity() {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 600eb5307d1e818a3f060ec28212a758569197c1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)

@@ -60,7 +60,7 @@ class StatisticsFragment : Fragment() {
         getStatistics2()
 
         //call function pie chart
-        pieChart(root)
+       // pieChart(root)
         //call function bar chart
         barChart(root)
         return root

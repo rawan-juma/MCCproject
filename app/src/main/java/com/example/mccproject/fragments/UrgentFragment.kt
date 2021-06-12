@@ -8,36 +8,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mccproject.Activities.AddNews
 import com.example.mccproject.R
 import com.example.mccproject.adapter.UrgentAdapter
-import com.example.mccproject.adapter.addnewsAdapter
-import com.example.myapplication.ApiClient
-import com.example.myapplication.Articles
-import com.example.myapplication.Headlines
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.fragment_latest_news.*
-import kotlinx.android.synthetic.main.fragment_latest_news.view.*
+import com.example.myapplication.ApiURL
+import com.example.myapplication.ArticlesModel
+import com.example.myapplication.HeadlinesModel
 import kotlinx.android.synthetic.main.fragment_urgent.*
 import kotlinx.android.synthetic.main.fragment_urgent.view.*
-import kotlinx.android.synthetic.main.select_time_new_pop_up.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-/**
- * A simple [Fragment] subclass.
- */
 class UrgentFragment : Fragment(){
     var dialog: Dialog? = null
     val API_KEY = "8ba1260833284db9bce1dcf04ab96845"
     var adapter: UrgentAdapter? = null
-    var articles: List<Articles> = ArrayList()
+    var articles: List<ArticlesModel> = ArrayList()
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -53,10 +41,10 @@ class UrgentFragment : Fragment(){
 
 
         root.swipeRefresh_urgent.setOnRefreshListener {
-            retrieveJson(API_KEY, root)
+            getDataJson(API_KEY, root)
 
         }
-        retrieveJson(API_KEY, root)
+        getDataJson(API_KEY, root)
 
         return root
 
@@ -65,15 +53,15 @@ class UrgentFragment : Fragment(){
 
 
 
-    fun retrieveJson(apiKey: String,root: View) {
+    fun getDataJson(apiKey: String,root: View) {
 
         root.swipeRefresh_urgent.isRefreshing = true
-        val call: Call<Headlines?> = ApiClient.instance!!.api.getUrgentData(
+        val call: Call<HeadlinesModel?> = ApiURL.instance!!.api.getUrgentData(
                 "القدس", apiKey, "ar","publishedAt",7)!!
 
 
-        call.enqueue(object : Callback<Headlines?> {
-            override fun onResponse(call: Call<Headlines?>?, response: Response<Headlines?>) {
+        call.enqueue(object : Callback<HeadlinesModel?> {
+            override fun onResponse(call: Call<HeadlinesModel?>?, response: Response<HeadlinesModel?>) {
                 if (response.isSuccessful && response.body()!!.articles != null) {
                     root.swipeRefresh_urgent.isRefreshing = false
                     articles = response.body()!!.articles!!
@@ -83,7 +71,7 @@ class UrgentFragment : Fragment(){
             }
 
 
-            override fun onFailure(call: Call<Headlines?>?, t: Throwable) {
+            override fun onFailure(call: Call<HeadlinesModel?>?, t: Throwable) {
                 root.swipeRefresh_urgent.isRefreshing = false
                 Toast.makeText(activity!!, t.localizedMessage, Toast.LENGTH_SHORT).show()
             }

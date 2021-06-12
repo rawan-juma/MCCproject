@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import com.example.mccproject.R
-import com.example.mccproject.model.RegisterDBhelper
+import com.example.mccproject.DB.RegisterDBhelper
 import kotlinx.android.synthetic.main.activity_sign_up.*
 
 
