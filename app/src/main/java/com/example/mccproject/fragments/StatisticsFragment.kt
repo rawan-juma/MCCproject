@@ -158,29 +158,30 @@ class StatisticsFragment : Fragment() {
 
                         if (statictcolor == "#CDA67F") {
                         staticCN += statictNumC.toFloat()
-                        barchart.addBar(BarModel(staticCN, Color.parseColor("#CDA67F")))
                         Log.e("barhhhhh", "///////////////+$staticCN")
 
                         } else if (statictcolor =="#FE6DA8"){
                         staticCS += statictNumC.toFloat()
-                        barchart.addBar(BarModel(staticCS, Color.parseColor("#FE6DA8")))
                         Log.e("barsssssss", "///////////////+$staticCS")
 
                         }else if (statictcolor =="#56B7F1"){
                         staticCA += statictNumC.toFloat()
-                        barchart.addBar(BarModel(staticCA, Color.parseColor("#56B7F1")))
                         Log.e("baraaaaaaaaa", "///////////////+$staticCA")
 
                         }else if(statictcolor =="#FED70E") {
                               staticCD += statictNumC.toFloat()
-                              barchart.addBar(BarModel(staticCD, Color.parseColor("#FED70E")))
                               Log.e("barDDDDDD", "///////////////+$staticCD")
 
                         }
-
-                        barchart.startAnimation()
                         statistics.add(statisticsModel2(id,statictNumC,statictcolor))
+
+
                     }
+                    barchart.addBar(BarModel(staticCN, Color.parseColor("#CDA67F")))
+                    barchart.addBar(BarModel(staticCS, Color.parseColor("#FE6DA8")))
+                    barchart.addBar(BarModel(staticCA, Color.parseColor("#56B7F1")))
+                    barchart.addBar(BarModel(staticCD, Color.parseColor("#FED70E")))
+                    barchart.startAnimation()
 
                 }
             }
