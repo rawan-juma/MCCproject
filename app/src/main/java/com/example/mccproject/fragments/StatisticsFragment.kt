@@ -4,12 +4,18 @@ package com.example.mccproject.fragments
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.mccproject.Activities.FormStatistics
 import com.example.mccproject.R
+import com.example.mccproject.model.HistoryModel
+import com.example.mccproject.model.statisticsModel
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_statistics.*
 import kotlinx.android.synthetic.main.fragment_statistics.view.*
 import org.eazegraph.lib.models.BarModel
 import org.eazegraph.lib.models.PieModel
@@ -19,6 +25,16 @@ import org.eazegraph.lib.models.PieModel
  * A simple [Fragment] subclass.
  */
 class StatisticsFragment : Fragment() {
+    val fb = FirebaseFirestore.getInstance()
+    var staticN = 0f
+    var staticS = 0f
+    var staticA = 0f
+    var staticD = 0f
+    var H = 0f
+    var S = 0f
+    var A = 0f
+    var D = 0f
+    var count =0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +51,7 @@ class StatisticsFragment : Fragment() {
             var i = Intent(context,FormStatistics::class.java)
             startActivity(i)
         }
-
+        getStatistics()
         //call function pie chart
         pieChart(root)
         //call function bar chart
@@ -44,10 +60,10 @@ class StatisticsFragment : Fragment() {
     }
     fun pieChart(root:View){
         //select the properties pie chart (name,number,color)
-        root.piechart.addPieSlice(PieModel("الشهداء", 15f, Color.parseColor("#FE6DA8")))
-        root.piechart.addPieSlice(PieModel("الاعتقالات", 25f, Color.parseColor("#56B7F1")))
-        root.piechart.addPieSlice(PieModel("حجز المنازل", 35f, Color.parseColor("#CDA67F")))
-        root.piechart.addPieSlice(PieModel("هدم المنازل", 9f, Color.parseColor("#FED70E")))
+//        root.piechart.addPieSlice(PieModel("الشهداء", S, Color.parseColor("#FE6DA8")))
+//        root.piechart.addPieSlice(PieModel("الاعتقالات", A, Color.parseColor("#56B7F1")))
+//        root.piechart.addPieSlice(PieModel("حجز المنازل", H, Color.parseColor("#CDA67F")))
+//        root.piechart.addPieSlice(PieModel("هدم المنازل", D, Color.parseColor("#FED70E")))
         root.piechart.startAnimation()
     }
     fun barChart(root :View){
@@ -56,12 +72,60 @@ class StatisticsFragment : Fragment() {
         root.barchart.addBar(BarModel(2f, -0xcbcbaa))
         root.barchart.addBar(BarModel(3.3f, -0xa9cbaa))
         root.barchart.addBar(BarModel(1.1f, -0x78c0aa))
-        root.barchart.addBar(BarModel(2.7f, -0xa9480f))
-        root.barchart.addBar(BarModel(2f, -0xcbcbaa))
-        root.barchart.addBar(BarModel(0.4f, -0xe00b54))
-        root.barchart.addBar(BarModel(4f, -0xe45b1a))
+
 
         root.barchart.startAnimation()
+    }
+
+        private fun getStatistics() {
+            val statistics = mutableListOf<statisticsModel>()
+            fb.collection("statistics")
+            .get()
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            for (document in task.result!!) {
+                        val id = document.id
+                        val data = document.data
+                        val statictNum = data["statictNum"] as String
+                        val typestatic = data["typestatic"] as String
+                        Log.e("ststst","///////////////+$statictNum+$typestatic")
+
+                            if (typestatic == "حجز المنازل") {
+                                //count++
+                                staticN += statictNum.toFloat()
+                                 //  H = staticN /4f*100
+                                piechart.addPieSlice(PieModel("حجز المنازل", staticN, Color.parseColor("#CDA67F")))
+                                Log.e("hhhhh","///////////////+$staticN")
+
+                            }else if (typestatic == "الشهداء"){
+                                //count++
+                                staticS += statictNum.toFloat()
+                              //  S = staticS /4f*100
+                                piechart.addPieSlice(PieModel("الشهداء", staticS, Color.parseColor("#FE6DA8")))
+                                Log.e("sssssss","///////////////+$staticS")
+
+                            }else if (typestatic == "الاعتقالات"){
+                               // count++
+                                staticA += statictNum.toFloat()
+                               //  A = staticA /4f*100
+                                piechart.addPieSlice(PieModel("الاعتقالات", staticA, Color.parseColor("#56B7F1")))
+                                Log.e("aaaaaaaaa","///////////////+$staticA")
+
+                            }else if(typestatic == "هدم المنازل"){
+                                //count++
+                                staticD += statictNum.toFloat()
+                              //  D = staticD/4f*100
+                                piechart.addPieSlice(PieModel("هدم المنازل", staticD, Color.parseColor("#FED70E")))
+                                Log.e("DDDDDD","///////////////+$staticD")
+
+
+                            }
+                                piechart.startAnimation()
+                        statistics.add(statisticsModel(id,typestatic,statictNum))
+                    }
+
+                        }
+            }
     }
 
 }
