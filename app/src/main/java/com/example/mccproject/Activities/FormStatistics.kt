@@ -3,6 +3,7 @@ package com.example.mccproject.Activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.mccproject.MainActivity
@@ -26,10 +27,11 @@ class FormStatistics : AppCompatActivity() {
 
         }
 
-//        btn_save_pie_chart.setOnClickListener {
-//            //  var i = Intent(this,MainActivity::class.java)
-//            //   startActivity(i)
-//        }
+        btn_save_bar_chart.setOnClickListener {
+            static2()
+            startActivity(Intent(this, MainActivity::class.java))
+
+        }
 
 
     }
@@ -52,7 +54,28 @@ class FormStatistics : AppCompatActivity() {
 
                 }
     }
+    private  fun static2(){
+        val statictNumC = et_nums_bar_chart.text.toString()
+        val statictcolor = sp_title_statices_bar.selectedItem.toString()
 
+        val statics: MutableMap<String, Any> = HashMap()
+        statics["statictNumC"] = statictNumC
+        statics["statictcolor"] = statictcolor
+
+        //    statics["typestatic"] = typestatic
+
+        fb.collection("statistics2")
+            .add(statics)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Add success", Toast.LENGTH_LONG).show()
+                Log.e("*************", "///////////////+$statictNumC+$statictcolor")
+
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "Error adding", Toast.LENGTH_LONG).show()
+
+            }
+    }
 
 
 //        private fun spinnerStatistics() {

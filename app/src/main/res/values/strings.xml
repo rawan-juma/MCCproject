@@ -7,6 +7,14 @@
         <item>هدم المنازل</item>
 
     </string-array>
+
+    <string-array name="titles1">
+        <item>#CDA67F</item>
+        <item>#FE6DA8</item>
+        <item>#56B7F1</item>
+        <item>#FED70E</item>
+
+    </string-array>
     <!-- TODO: Remove or change this placeholder text -->
     <string name = "hello_blank_fragment">Hello blank fragment</string>
 

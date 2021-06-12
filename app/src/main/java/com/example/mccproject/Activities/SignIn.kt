@@ -6,11 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
-import com.android.volley.AuthFailureError
-import com.android.volley.RequestQueue
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
 import com.example.mccproject.MainActivity
 import com.example.mccproject.R
 import com.google.firebase.messaging.FirebaseMessaging
@@ -23,7 +18,6 @@ import org.json.JSONObject
 import java.io.UnsupportedEncodingException
 
 class SignIn : AppCompatActivity() {
-    var requestQueue: RequestQueue? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
