@@ -4,22 +4,22 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class ApiClient private constructor() {
-    val api: ApiInterface
-        get() = retrofit.create(ApiInterface::class.java)
+class ApiURL private constructor() {
+    val api: ApiFunctionsInter
+        get() = retrofit.create(ApiFunctionsInter::class.java)
 
     companion object {
         private const val BASE_URL = "https://newsapi.org/v2/"
-        private var apiClient: ApiClient? = null
+        private var apiURL: ApiURL? = null
         private lateinit var retrofit: Retrofit
 
         @get:Synchronized
-        val instance: ApiClient?
+        val instance: ApiURL?
             get() {
-                if (apiClient == null) {
-                    apiClient = ApiClient()
+                if (apiURL == null) {
+                    apiURL = ApiURL()
                 }
-                return apiClient
+                return apiURL
             }
     }
 

@@ -1,10 +1,10 @@
-package com.example.mccproject.model
+package com.example.mccproject.DB
 
 import android.app.Activity
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import android.os.UserManager
+import com.example.mccproject.model.UsersModel
 
 class RegisterDBhelper (activity: Activity) :
     SQLiteOpenHelper(activity, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -37,27 +37,7 @@ class RegisterDBhelper (activity: Activity) :
 
 
 
-    fun getAllProductRec(): ArrayList<UsersModel> {
-        val data = ArrayList<UsersModel>()
-        val c =
-            db.rawQuery("select * from ${UsersModel.TABLE_NAME}", null)
-        c.moveToFirst()
-        while (!c.isAfterLast) {
-            val s = UsersModel(c.getInt(0),c.getString(1), c.getString(2), c.getString(3))
-            data.add(s)
-            c.moveToNext()
-        }
-        c.close()
-        return data
-    }
 
-    fun updateNote(oldId:Int, username: String,email: String,password: String) : Boolean{
-        val cv = ContentValues()
-        cv.put(UsersModel.COL_USER_NAME, username)
-        cv.put(UsersModel.COL_EMAIL, email)
-        cv.put(UsersModel.COL_PASSWORD, password)
-        return db.update(UsersModel.TABLE_NAME,cv,"${UsersModel.COL_ID} = $oldId",null)>0
-    }
     companion object {
         val DATABASE_NAME = "ShoppingCocktail"
         val DATABASE_VERSION = 1

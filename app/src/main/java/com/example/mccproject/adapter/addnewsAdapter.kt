@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mccproject.Activities.DetailsApi
 import com.example.mccproject.R
-import com.example.myapplication.Articles
+import com.example.myapplication.ArticlesModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.itemnew.view.*
 import org.ocpsoft.prettytime.PrettyTime
@@ -19,9 +19,9 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class addnewsAdapter(var context: Context, articles: List<Articles>) :
+class addnewsAdapter(var context: Context, articles: List<ArticlesModel>) :
         RecyclerView.Adapter<addnewsAdapter.ViewHolder>() {
-    var articles: List<Articles>
+    var articles: List<ArticlesModel>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // val view: View = LayoutInflater.from(parent.context).inflate(R.layout.itemm, parent, false)
         val view = LayoutInflater.from(parent.context).inflate(R.layout.itemnew, parent, false)
@@ -29,7 +29,7 @@ class addnewsAdapter(var context: Context, articles: List<Articles>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val a: Articles = articles[position]
+        val a: ArticlesModel = articles[position]
         val imageUrl: String? = a.urlToImage
         Picasso.with(context).load(imageUrl).into(holder.imageView)
         holder.tvTitle.text = a.title

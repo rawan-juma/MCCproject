@@ -11,12 +11,11 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.mccproject.Activities.Detailes
 import com.example.mccproject.R
 import com.example.mccproject.adapter.addnewsAdapter
-import com.example.myapplication.ApiClient
-import com.example.myapplication.Articles
-import com.example.myapplication.Headlines
+import com.example.myapplication.ApiURL
+import com.example.myapplication.ArticlesModel
+import com.example.myapplication.HeadlinesModel
 import kotlinx.android.synthetic.main.fragment_latest_news.*
 import kotlinx.android.synthetic.main.fragment_latest_news.view.*
 import kotlinx.android.synthetic.main.select_time_new_pop_up.*
@@ -31,8 +30,8 @@ import retrofit2.Response
 class LatestNewsFragment : Fragment(){
     var dialog: Dialog? = null
     val API_KEY = "8ba1260833284db9bce1dcf04ab96845"
-    var adapter: addnewsAdapter? = null
-    var articles: List<Articles> = ArrayList()
+    var addAdapter: addnewsAdapter? = null
+    var articles: List<ArticlesModel> = ArrayList()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,7 +53,7 @@ class LatestNewsFragment : Fragment(){
                 fromDatee = dialog!!.et_from.text.toString()
                 toDatee = dialog!!.et_to.text.toString()
                 dialog!!.dismiss()
-                retrieveJson(
+                getDataJson(
 
                     API_KEY, dialog!!.et_from.text.toString(), dialog!!.et_to.text.toString()
                     ,root)
@@ -65,9 +64,9 @@ class LatestNewsFragment : Fragment(){
         }
 
         root.swipe_refresh_last_news.setOnRefreshListener {
-            retrieveJson(API_KEY, fromDatee, toDatee,root)
+            getDataJson(API_KEY, fromDatee, toDatee,root)
         }
-        retrieveJson(API_KEY, fromDatee, toDatee,root)
+        getDataJson(API_KEY, fromDatee, toDatee,root)
 
         return root
 
@@ -76,25 +75,25 @@ class LatestNewsFragment : Fragment(){
 
     }
 
-    fun retrieveJson(apiKey: String, fromDate: String?, toDate: String?,root: View) {
+    fun getDataJson(apiKey: String, fromDate: String?, toDate: String?,root: View) {
 
         root.swipe_refresh_last_news.isRefreshing = true
-        val call: Call<Headlines?> = ApiClient.instance!!.api.getSpecificData(
-            "القدس", fromDate, toDate, apiKey, "ar"
-        )!!
+        val call: Call<HeadlinesModel?> = ApiURL.instance!!.api.getSpecificData(
+            "القدس", fromDate, toDate, apiKey, "ar","relevancy",100
+        ,)!!
 
 
-        call.enqueue(object : Callback<Headlines?> {
-            override fun onResponse(call: Call<Headlines?>?, response: Response<Headlines?>) {
+        call.enqueue(object : Callback<HeadlinesModel?> {
+            override fun onResponse(call: Call<HeadlinesModel?>?, response: Response<HeadlinesModel?>) {
                 if (response.isSuccessful && response.body()!!.articles != null) {
                     root.swipe_refresh_last_news.isRefreshing = false
                     articles = response.body()!!.articles!!
-                    adapter = addnewsAdapter(activity!!, articles)
-                    rc_last_new.adapter = adapter
+                    addAdapter = addnewsAdapter(activity!!, articles)
+                    rc_last_new.adapter = addAdapter
                 }
             }
 
-            override fun onFailure(call: Call<Headlines?>?, t: Throwable) {
+            override fun onFailure(call: Call<HeadlinesModel?>?, t: Throwable) {
                 root.swipe_refresh_last_news.isRefreshing = false
                 Toast.makeText(activity!!, t.localizedMessage, Toast.LENGTH_SHORT).show()
             }
