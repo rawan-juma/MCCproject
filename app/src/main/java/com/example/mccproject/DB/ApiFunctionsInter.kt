@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 
-interface ApiInterface {
+interface ApiFunctionsInter {
 
     @GET("everything")
     fun getSpecificData(
@@ -15,9 +15,10 @@ interface ApiInterface {
         @Query("to") query3: String?,
         @Query("apiKey") apiKey: String?,
         @Query("language") language:String,
+        @Query("sortBy") publishedAt:String,
+        @Query("pageSize") pageSize:Int,
 
-
-    ): Call<Headlines?>?
+    ): Call<HeadlinesModel?>?
 
     @GET("everything")
     fun getUrgentData(
@@ -27,6 +28,6 @@ interface ApiInterface {
        @Query("language") language:String,
        @Query("sortBy") publishedAt:String,
        @Query("pageSize") pageSize:Int
-    ): Call<Headlines?>?
+    ): Call<HeadlinesModel?>?
 
 }

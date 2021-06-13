@@ -1,7 +1,6 @@
 package com.example.mccproject.Activities
 
-import android.icu.number.NumberFormatter.with
-import android.icu.number.NumberRangeFormatter.with
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -9,13 +8,41 @@ import android.webkit.WebViewClient
 import com.example.mccproject.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_details_api.*
+import kotlinx.android.synthetic.main.activity_details_api.loader
+import petrov.kristiyan.colorpicker.ColorPicker
 
 class DetailsApi : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details_api)
 
+        tvDesc.setOnClickListener {
+            val colorPicker = ColorPicker(this)
+            colorPicker.show()
+            colorPicker.setOnChooseColorListener(object : ColorPicker.OnChooseColorListener {
+                override fun onChooseColor(position: Int, color: Int) {
+                    tvDesc.setTextColor(color)
+                }
 
+                override fun onCancel() {
+                }
+            })
+        }
+
+        tvTitle.setOnClickListener {
+            val colorPicker = ColorPicker(this)
+            colorPicker.show()
+            colorPicker.setOnChooseColorListener(object : ColorPicker.OnChooseColorListener {
+                override fun onChooseColor(position: Int, color: Int) {
+                    tvTitle.setTextColor(color)
+                    //  tvTitleHistori.setBackgroundColor(Color.parseColor("#FF018786"))
+                }
+
+                override fun onCancel() {
+                    // put code
+                }
+            })
+        }
 
         webViewLoader.visibility = View.VISIBLE
 

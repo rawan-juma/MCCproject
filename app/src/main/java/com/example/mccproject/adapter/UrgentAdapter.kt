@@ -11,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mccproject.Activities.DetailsApi
 import com.example.mccproject.R
-import com.example.myapplication.Articles
+import com.example.myapplication.ArticlesModel
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.itemnew.view.*
 import kotlinx.android.synthetic.main.itemnew.view.cardView
@@ -21,9 +21,9 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class UrgentAdapter(var context: Context, articles: List<Articles>) :
+class UrgentAdapter(var context: Context, articles: List<ArticlesModel>) :
     RecyclerView.Adapter<UrgentAdapter.ViewHolder>() {
-    var articles: List<Articles> = articles
+    var articles: List<ArticlesModel> = articles
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // val view: View = LayoutInflater.from(parent.context).inflate(R.layout.itemm, parent, false)
         val view = LayoutInflater.from(parent.context).inflate(R.layout.urgent_item, parent, false)
@@ -31,7 +31,7 @@ class UrgentAdapter(var context: Context, articles: List<Articles>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val a: Articles = articles[position]
+        val a: ArticlesModel = articles[position]
         holder.tvTitle.text = a.title
         holder.tvSource.text = a.source!!.name
         holder.desc.text = a.description
