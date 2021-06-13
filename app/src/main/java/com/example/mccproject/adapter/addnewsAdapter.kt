@@ -33,7 +33,6 @@ class addnewsAdapter(var context: Context, articles: List<ArticlesModel>) :
         val imageUrl: String? = a.urlToImage
         Picasso.with(context).load(imageUrl).into(holder.imageView)
         holder.tvTitle.text = a.title
-        holder.tvSource.text = a.source!!.name
         holder.tvDate.text = "\u2022" + dateTime(a.publishedAt)
         holder.cardView.setOnClickListener {
             val intent = Intent(context, DetailsApi::class.java)
@@ -53,14 +52,12 @@ class addnewsAdapter(var context: Context, articles: List<ArticlesModel>) :
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvTitle: TextView
-        var tvSource: TextView
         var tvDate: TextView
         var imageView: ImageView
         var cardView: CardView
 
         init {
             tvTitle = itemView.tvTitle
-            tvSource = itemView.tvSource
             tvDate = itemView.tvDate
             imageView = itemView.image
             cardView = itemView.cardView

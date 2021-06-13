@@ -59,9 +59,32 @@
         android:fontFamily="@font/g_bold"
         android:textColor="@color/white"
         />
+   <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="right"
+    >
 
+            <ImageView
+                android:id="@+id/updateBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:background="@drawable/ic_baseline_edit_24"
+                >
+            </ImageView>
+            <ImageView
+                android:id="@+id/deleteBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginStart="5dp"
+                android:background="@drawable/ic_baseline_delete_24"
+                android:gravity="right"
 
-
+                >
+            </ImageView>
+</LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,6 +107,8 @@
                         android:textSize="15dp"
                         android:textStyle="bold" />
 
+
+
                     <TextView
                         android:id="@+id/tvDateHist"
                         android:layout_width="wrap_content"
@@ -98,6 +123,9 @@
                 </LinearLayout>
 
 
+<<<<<<< HEAD
+
+=======
                 <ImageView
                     android:id="@+id/updateBtn"
                     android:layout_width="wrap_content"
@@ -116,6 +144,7 @@
                     android:background="@drawable/ic_baseline_delete_24"
                     >
                 </ImageView>
+>>>>>>> 47d9d5ab0926655a4316ade02331c636959f27f5
                 <TextView
                     android:id="@+id/txt"
                     android:layout_width="0dp"

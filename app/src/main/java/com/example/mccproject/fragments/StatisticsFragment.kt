@@ -33,11 +33,7 @@ class StatisticsFragment : Fragment() {
     var staticCS = 0f
     var staticCA = 0f
     var staticCD = 0f
-    var H = 0f
-    var S = 0f
-    var A = 0f
-    var D = 0f
-    var count = 0
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
