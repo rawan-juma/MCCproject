@@ -2,5 +2,6 @@
 <resources>
     <style name="corner">
         <item name="cornerSizeBottomLeft">50dp</item>
+        <item name="cornerSizeBottomRight">50dp</item>
     </style>
 </resources>

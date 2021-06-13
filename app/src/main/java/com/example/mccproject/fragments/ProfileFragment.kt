@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,9 +20,11 @@ import com.example.mccproject.Activities.AddNews
 import com.example.mccproject.R
 import kotlinx.android.synthetic.main.activity_add_news.*
 import kotlinx.android.synthetic.main.activity_edit_profile.view.*
+import kotlinx.android.synthetic.main.activity_histori_news_details.*
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
+import petrov.kristiyan.colorpicker.ColorPicker
 
 
 /**
@@ -29,6 +32,7 @@ import kotlinx.android.synthetic.main.fragment_profile.view.*
  */
 class ProfileFragment : Fragment() {
     var imageURI:String=" "
+    private  var FontSize = 14f
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -52,101 +56,62 @@ class ProfileFragment : Fragment() {
             play.isClickable=false
             play.visibility=View.INVISIBLE
         }
-//        root.profile_image.setImageURI(Uri.parse(imageURI))
+
+
+        root.colorPicker.setOnClickListener {
+            val colorPicker = ColorPicker(activity)
+            colorPicker.show()
+            colorPicker.setOnChooseColorListener(object : ColorPicker.OnChooseColorListener {
+                override fun onChooseColor(position: Int, color: Int) {
+                    txt1.setTextColor(color)
+                    txt2.setTextColor(color)
+                    //  tvTitleHistori.setBackgroundColor(Color.parseColor("#FF018786"))
+                }
+
+                override fun onCancel() {
+                    // put code
+                }
+            })
+            txt1.text
+            txt2.text
+
+        }
+        root.increase.setOnClickListener {
+            FontSize +=4f
+            txt1.setTextSize(TypedValue.COMPLEX_UNIT_SP,FontSize)
+            txt2.setTextSize(TypedValue.COMPLEX_UNIT_SP,FontSize)
+        }
+        root.decrease.setOnClickListener {
+            FontSize -=4f
+            txt1.setTextSize(TypedValue.COMPLEX_UNIT_SP,FontSize)
+            txt2.setTextSize(TypedValue.COMPLEX_UNIT_SP,FontSize)
+        }
+//        root.fontSize.setOnClickListener {
 //
-//        root.profile_image.setOnClickListener{
-//            PickImageDialog.build(PickSetup())
-//                .setOnPickResult { r ->
-//                    imageURI = r.uri.toString()
-//                    root.profile_image.setImageURI(r.uri)
-//                }
-//                .setOnPickCancel {Toast.makeText(activity,"Faild to get the image",Toast.LENGTH_SHORT).show()
+//            val builder = AlertDialog.Builder(context)
+//            builder.setTitle("حجم الخط")
+//            val sizes = arrayOf("كبير", "متوسط", "صغير")
+//            val checkedItem = 1
 //
-//                }.show(activity!!.supportFragmentManager)
+//            builder.setSingleChoiceItems(
+//                sizes, checkedItem
+//            ) { dialog, which ->
+//            }
+//            builder.setPositiveButton("Done") { _, _ ->
+//            }
+//            builder.setNegativeButton("Cancel", null)
+//            val dialog = builder.create()
+//            dialog.show()
+//
 //        }
 
-        root.fontSize.setOnClickListener {
-
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle("حجم الخط")
-            val sizes = arrayOf("كبير", "متوسط", "صغير")
-            val checkedItem = 1
-
-            builder.setSingleChoiceItems(
-                sizes, checkedItem
-            ) { dialog, which ->
-            }
-            builder.setPositiveButton("Done") { _, _ ->
-            }
-            builder.setNegativeButton("Cancel", null)
-            val dialog = builder.create()
-            dialog.show()
-
-        }
-
-        root.fontSize.setOnClickListener {
-
-            val builder = AlertDialog.Builder(context)
-            builder.setTitle("حجم الخط")
-            val sizes = arrayOf("كبير", "متوسط", "صغير")
-            val checkedItem = 1
-
-            builder.setSingleChoiceItems(
-                sizes, checkedItem
-            ) { dialog, which ->
-            }
-            builder.setPositiveButton("Done") { _, _ ->
-            }
-            builder.setNegativeButton("Cancel", null)
-            val dialog = builder.create()
-            dialog.show()
-
-        }
         root.button3.setOnClickListener {
             var i = Intent(context,AddNews::class.java)
             startActivity(i)
         }
 
 
-//        root.button.setOnClickListener {
-//            val view = LayoutInflater.from(context).inflate(R.layout.activity_edit_profile, null)
-////            root.edUsername.setText(name)
-////            email = root.edEmail.text.toString()
-////            pass =root.edPassword.text.toString()
-//            val builder = AlertDialog.Builder(activity)
-//                .setView(view)
-//                .setPositiveButton("تعديل") { _, _ ->
-////                    val editor = sharedPreferences.edit()
-////                    editor.putString("username",root.)
-////                    editor.putString("email",email)
-////                    editor.putString("passSignUp",pass)
-//////                    editor.putString("image",imageURI)
-////                    editor.apply()
-////                    activity!!.supportFragmentManager.beginTransaction().replace(R.id.mainContainer, ProfileFragment()).commit()
-//////                val db = NoteDBHelper(activity)
-//////                val isUpdate = db.updateNote(
-//////                    data.get(position).id,
-//////                    view.edittitle.text.toString(),
-//////                    view.editbody.text.toString()
-//////                )
-//////                if (isUpdate == true) {
-//////                    data[position].title = view.edittitle.text.toString()
-//////                    data[position].body = view.editbody.text.toString()
-//////                    notifyDataSetChanged()
-//////
-//////                    Toast.makeText(activity, "Updated Successfully", Toast.LENGTH_SHORT)
-//////                        .show()
-//////                } else {
-//////                    Toast.makeText(activity, "Error Updated", Toast.LENGTH_SHORT).show()
-//////
-//////                }
-//                }.setNegativeButton("إلغاء") { _, _ ->
-//
-//
-//                }
-//            val alertDialog = builder.create()
-//            alertDialog.show()
-//        }
+
 
 
         return root

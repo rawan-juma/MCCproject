@@ -1,16 +1,18 @@
 package com.example.mccproject.Activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
+import android.view.Gravity
+import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mccproject.MainActivity
 import com.example.mccproject.R
-import com.example.mccproject.fragments.StatisticsFragment
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_form_statistics.*
+
 
 class FormStatistics : AppCompatActivity() {
     val fb = FirebaseFirestore.getInstance()
@@ -21,6 +23,13 @@ class FormStatistics : AppCompatActivity() {
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
        // spinnerStatistics()
 
+//        val abar: ActionBar? = supportActionBar
+//        val viewActionBar: View = layoutInflater.inflate(R.layout.activity_form_statistics, null)
+//        val params: ActionBar.LayoutParams = LayoutParams( //Center the textview in the ActionBar !
+//            ActionBar.LayoutParams.WRAP_CONTENT,
+//            ActionBar.LayoutParams.MATCH_PARENT,
+//            Gravity.CENTER
+//        )
         btn_save_pie_chart.setOnClickListener {
             static()
             startActivity(Intent(this, MainActivity::class.java))

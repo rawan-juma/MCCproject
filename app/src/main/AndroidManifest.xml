@@ -37,7 +37,9 @@
         <activity
             android:name=".Activities.SignUp"
             android:theme="@style/Theme.mcc" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" android:theme="@style/Theme.mcc" >
+
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"
