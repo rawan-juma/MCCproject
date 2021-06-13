@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 
@@ -25,7 +26,7 @@ class SignIn : AppCompatActivity() {
 
         var register=findViewById<TextView>(R.id.register)
         var signIn = findViewById<TextView>(R.id.signin)
-
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         val sharedprf= getSharedPreferences("sharedd", MODE_PRIVATE)
 //        val islogged=sharedprf.getBoolean("islogged",false)

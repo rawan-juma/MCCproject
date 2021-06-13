@@ -108,45 +108,45 @@ class ProfileFragment : Fragment() {
         }
 
 
-        root.button.setOnClickListener {
-            val view = LayoutInflater.from(context).inflate(R.layout.activity_edit_profile, null)
-//            root.edUsername.setText(name)
-//            email = root.edEmail.text.toString()
-//            pass =root.edPassword.text.toString()
-            val builder = AlertDialog.Builder(activity)
-                .setView(view)
-                .setPositiveButton("تعديل") { _, _ ->
-//                    val editor = sharedPreferences.edit()
-//                    editor.putString("username",root.)
-//                    editor.putString("email",email)
-//                    editor.putString("passSignUp",pass)
-////                    editor.putString("image",imageURI)
-//                    editor.apply()
-//                    activity!!.supportFragmentManager.beginTransaction().replace(R.id.mainContainer, ProfileFragment()).commit()
-////                val db = NoteDBHelper(activity)
-////                val isUpdate = db.updateNote(
-////                    data.get(position).id,
-////                    view.edittitle.text.toString(),
-////                    view.editbody.text.toString()
-////                )
-////                if (isUpdate == true) {
-////                    data[position].title = view.edittitle.text.toString()
-////                    data[position].body = view.editbody.text.toString()
-////                    notifyDataSetChanged()
-////
-////                    Toast.makeText(activity, "Updated Successfully", Toast.LENGTH_SHORT)
-////                        .show()
-////                } else {
-////                    Toast.makeText(activity, "Error Updated", Toast.LENGTH_SHORT).show()
-////
-////                }
-                }.setNegativeButton("إلغاء") { _, _ ->
-
-
-                }
-            val alertDialog = builder.create()
-            alertDialog.show()
-        }
+//        root.button.setOnClickListener {
+//            val view = LayoutInflater.from(context).inflate(R.layout.activity_edit_profile, null)
+////            root.edUsername.setText(name)
+////            email = root.edEmail.text.toString()
+////            pass =root.edPassword.text.toString()
+//            val builder = AlertDialog.Builder(activity)
+//                .setView(view)
+//                .setPositiveButton("تعديل") { _, _ ->
+////                    val editor = sharedPreferences.edit()
+////                    editor.putString("username",root.)
+////                    editor.putString("email",email)
+////                    editor.putString("passSignUp",pass)
+//////                    editor.putString("image",imageURI)
+////                    editor.apply()
+////                    activity!!.supportFragmentManager.beginTransaction().replace(R.id.mainContainer, ProfileFragment()).commit()
+//////                val db = NoteDBHelper(activity)
+//////                val isUpdate = db.updateNote(
+//////                    data.get(position).id,
+//////                    view.edittitle.text.toString(),
+//////                    view.editbody.text.toString()
+//////                )
+//////                if (isUpdate == true) {
+//////                    data[position].title = view.edittitle.text.toString()
+//////                    data[position].body = view.editbody.text.toString()
+//////                    notifyDataSetChanged()
+//////
+//////                    Toast.makeText(activity, "Updated Successfully", Toast.LENGTH_SHORT)
+//////                        .show()
+//////                } else {
+//////                    Toast.makeText(activity, "Error Updated", Toast.LENGTH_SHORT).show()
+//////
+//////                }
+//                }.setNegativeButton("إلغاء") { _, _ ->
+//
+//
+//                }
+//            val alertDialog = builder.create()
+//            alertDialog.show()
+//        }
 
 
         return root

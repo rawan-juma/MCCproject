@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/navigation_statistics"
-        android:icon="@drawable/details"
+        android:icon="@drawable/ic_baseline_signal_cellular_alt_24"
         android:title="الاحصائيات" />
 
 
