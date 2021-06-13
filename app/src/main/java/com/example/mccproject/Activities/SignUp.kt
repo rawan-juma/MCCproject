@@ -3,6 +3,7 @@ package com.example.mccproject.Activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 import com.example.mccproject.R
@@ -18,7 +19,7 @@ class SignUp : AppCompatActivity() {
 
         var login=findViewById<TextView>(R.id.login)
         val db = RegisterDBhelper(this)
-
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         signup.setOnClickListener {
 
                 if(edUsername.text.isNotEmpty() &&  edEmail.text.isNotEmpty() &&  edPassword.text.isNotEmpty() &&  edConfirmPass.text.isNotEmpty() && (edPassword.text.toString() ==  edConfirmPass.text.toString())) {

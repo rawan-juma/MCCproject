@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import android.widget.TextView
 import android.widget.Toast
 
@@ -25,15 +26,15 @@ class SignIn : AppCompatActivity() {
 
         var register=findViewById<TextView>(R.id.register)
         var signIn = findViewById<TextView>(R.id.signin)
-
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         val sharedprf= getSharedPreferences("sharedd", MODE_PRIVATE)
 //        val islogged=sharedprf.getBoolean("islogged",false)
-        var email1= sharedprf.getString("email","No Data")
+        var email1= sharedprf.getString("email","")
         edEmail.setText("$email1")
-        var pass=sharedprf.getString("passSignUp","No Data")
+        var pass=sharedprf.getString("passSignUp","")
         edPassword.setText("$pass")
-        var username=sharedprf.getString("username","No Data")
+        var username=sharedprf.getString("username","")
         signIn.setOnClickListener {
             if(edEmail.text.toString() == "admin@gmail.com" && edPassword.text.toString() == "123456"){
                 val sharedprf= getSharedPreferences("shared", MODE_PRIVATE)
@@ -49,7 +50,7 @@ class SignIn : AppCompatActivity() {
                 Toast.makeText(this, "No admin", Toast.LENGTH_SHORT).show()
                 val sharedprf= getSharedPreferences("shared", MODE_PRIVATE)
                 val editor=sharedprf.edit()
-                editor.putString("username",sharedprf.getString("username","No Data"))
+                editor.putString("username",username)
                 editor.putString("email",edEmail.text.toString())
                 editor.putString("passSignIn",edPassword.text.toString())
                 editor.commit()
