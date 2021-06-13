@@ -35,7 +35,7 @@
         <activity
             android:name=".Activities.SignUp"
             android:theme="@style/Theme.mcc" />
-        <activity android:name=".MainActivity" android:theme="@style/Theme.mcc" >
+        <activity android:name=".MainActivity"  >
 
         </activity>
 

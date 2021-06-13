@@ -17,6 +17,7 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.example.mccproject.Activities.AddNews
+import com.example.mccproject.Activities.SignIn
 import com.example.mccproject.R
 import kotlinx.android.synthetic.main.activity_add_news.*
 import kotlinx.android.synthetic.main.activity_edit_profile.view.*
@@ -47,6 +48,18 @@ class ProfileFragment : Fragment() {
         var email=sharedPreferences.getString("email","")
         root.useremail.text = email
 
+
+        root.logout.setOnClickListener {
+//            val sharedprf= activity!!.getSharedPreferences("shared", Context.MODE_PRIVATE)
+//            val editor=sharedprf.edit()
+//            editor.commit()
+//            editor.clear().apply()
+
+            val inslogout = Intent(activity!!, SignIn::class.java)
+            startActivity(inslogout)
+           activity!!.finish()
+
+        }
         if(email.equals("admin@gmail.com")){
             var play = root.button3
             play.isClickable=false

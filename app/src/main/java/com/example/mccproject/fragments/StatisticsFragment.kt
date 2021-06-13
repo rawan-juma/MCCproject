@@ -1,6 +1,7 @@
 package com.example.mccproject.fragments
 
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -14,6 +15,7 @@ import com.example.mccproject.R
 import com.example.mccproject.model.statisticsModel
 import com.example.mccproject.model.statisticsModel2
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.android.synthetic.main.fragment_statistics.*
 import kotlinx.android.synthetic.main.fragment_statistics.view.*
 import org.eazegraph.lib.models.BarModel
@@ -46,8 +48,25 @@ class StatisticsFragment : Fragment() {
             startActivity(i)
         }
         getStatistics()
+        val sharedPreferences= requireActivity().getSharedPreferences("shared", Context.MODE_PRIVATE)
+     //   var name= sharedPreferences.getString("username","")
 
-
+        var email=sharedPreferences.getString("email","")
+        if(email.equals("admin@gmail.com")){
+            var play = root.btn_bar_chart_edit
+            play.isClickable=false
+            play.visibility=View.VISIBLE
+            var play2 = root.btn_pie_chart_edit
+            play2.isClickable=false
+            play2.visibility=View.VISIBLE
+        }else{
+            var play = root.btn_bar_chart_edit
+            play.isClickable=false
+            play.visibility=View.INVISIBLE
+            var play2 = root.btn_pie_chart_edit
+            play2.isClickable=false
+            play2.visibility=View.INVISIBLE
+        }
         root.btn_bar_chart_edit.setOnClickListener {
             var i = Intent(context, FormStatistics::class.java)
             startActivity(i)

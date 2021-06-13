@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.mccproject.R
@@ -36,8 +37,8 @@ class SignUp : AppCompatActivity() {
                         editor.commit()
                         editor.apply()
 
-                        var i = Intent(this,SignIn::class.java)
-                        startActivity(i)
+                            var i = Intent(this,SignIn::class.java)
+                            startActivity(i)
 
                     edUsername.text.clear()
                     edEmail.text.clear()
@@ -49,6 +50,17 @@ class SignUp : AppCompatActivity() {
 
                 }
                 }else{
+                    when {
+                        edUsername.text.toString() == "" -> {
+                            errFill(edUsername,"please fill username")
+                        }
+                        edEmail.text.toString() == "" -> {
+                            errFill(edEmail,"please fill Email")
+                        }
+                        edPassword.text.toString() == "" -> {
+                            errFill(edPassword,"please fill password")
+                        }
+                    }
                     Toast.makeText(this, "Fill Fields", Toast.LENGTH_SHORT).show()
 
                 }
@@ -74,5 +86,10 @@ class SignUp : AppCompatActivity() {
             startActivity(i)
         }
 
+    }
+
+    fun errFill(et : EditText,textmsg : String){
+        et.error=textmsg
+        et.isFocusable=true
     }
 }

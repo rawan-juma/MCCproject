@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
@@ -39,7 +40,7 @@ class SignIn : AppCompatActivity() {
         edPassword.setText("$pass")
         var username=sharedprf.getString("username", "")
         signIn.setOnClickListener {
-            if(edEmail.text.toString() == "admin@gmail.com" && edPassword.text.toString() == "123456"){
+            if(edEmail.text.toString() == "admin@gmail.com" && edPassword.text.toString() == "123456" && edEmail.text.toString() != "" && edPassword.text.toString() != ""){
                 val sharedprf= getSharedPreferences("shared", MODE_PRIVATE)
                 val editor=sharedprf.edit()
                 editor.putString("username", "Admin")
@@ -49,7 +50,7 @@ class SignIn : AppCompatActivity() {
                 editor.apply()
             var i = Intent(this, MainActivity::class.java)
             startActivity(i)}
-            else if (edEmail.text.toString() == email1 && edPassword.text.toString() == pass){
+            else if (edEmail.text.toString() == email1 && edPassword.text.toString() == pass  && (edEmail.text.toString() != "" && edPassword.text.toString() != "")){
                 Toast.makeText(this, "No admin", Toast.LENGTH_SHORT).show()
                 val sharedprf= getSharedPreferences("shared", MODE_PRIVATE)
                 val editor=sharedprf.edit()
@@ -61,6 +62,15 @@ class SignIn : AppCompatActivity() {
                 var i = Intent(this, MainActivity::class.java)
                 startActivity(i)
 
+            }else{
+                when {
+                    edEmail.text.toString() == "" -> {
+                        errFill(edEmail,"please fill Email")
+                    }
+                    edPassword.text.toString() == "" -> {
+                        errFill(edPassword,"please fill password")
+                    }}
+                Toast.makeText(this, "please fill feild", Toast.LENGTH_SHORT).show()
             }
             getRegToken(edEmail.text.toString(), edPassword.text.toString())
         }
@@ -98,5 +108,10 @@ class SignIn : AppCompatActivity() {
 
 
 
+        }
+
+        fun errFill(et : EditText, textmsg : String){
+            et.error=textmsg
+            et.isFocusable=true
         }
     }
