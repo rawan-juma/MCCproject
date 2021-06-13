@@ -14,23 +14,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MCCproject">
-
-
-        <activity android:name=".Activities.EditProfile" />
-
-        <activity android:name=".Activities.HistoriNewsDetails"></activity>
-        <activity android:name=".Activities.DetailsApi" />
-
-
-        <activity android:name=".Activities.AddNews" />
-        <activity
-            android:name=".Activities.SignIn"
-            android:theme="@style/Theme.mcc">
+        <activity android:name=".Activities.Splash" android:theme="@style/Theme.mcc">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".Activities.EditProfile" />
+        <activity android:name=".Activities.HistoriNewsDetails" />
+        <activity android:name=".Activities.DetailsApi" />
+        <activity android:name=".Activities.AddNews" />
+        <activity
+            android:name=".Activities.SignIn"
+            android:theme="@style/Theme.mcc">
+
         </activity>
         <activity android:name=".Activities.FormStatistics" />
         <activity android:name=".Activities.Detailes" />
@@ -42,7 +40,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
     </application>
 
 </manifest>
