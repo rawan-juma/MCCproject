@@ -35,7 +35,7 @@ class DetailsApi : AppCompatActivity() {
             colorPicker.setOnChooseColorListener(object : ColorPicker.OnChooseColorListener {
                 override fun onChooseColor(position: Int, color: Int) {
                     tvTitle.setTextColor(color)
-                    //  tvTitleHistori.setBackgroundColor(Color.parseColor("#FF018786"))
+
                 }
 
                 override fun onCancel() {

@@ -43,11 +43,7 @@ class StatisticsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_statistics, container, false)
-        root.btn_pie_chart_edit.setOnClickListener {
-            var i = Intent(context, FormStatistics::class.java)
-            startActivity(i)
-        }
-        getStatistics()
+
         val sharedPreferences= requireActivity().getSharedPreferences("shared", Context.MODE_PRIVATE)
      //   var name= sharedPreferences.getString("username","")
 
@@ -73,7 +69,11 @@ class StatisticsFragment : Fragment() {
 
         }
         getStatistics2()
-
+        root.btn_pie_chart_edit.setOnClickListener {
+            var i = Intent(context, FormStatistics::class.java)
+            startActivity(i)
+        }
+        getStatistics()
         //call function pie chart
        // pieChart(root)
         //call function bar chart

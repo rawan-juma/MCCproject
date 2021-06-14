@@ -66,18 +66,7 @@ class SignUp : AppCompatActivity() {
                 }
 
 
-                /* val f=ProfileFragment()
-                 val bundle=Bundle()
-                 bundle.putInt("image",R.id.imageAddProduct)
-                 bundle.putString("nameproduct",R.id.namepro.toString())
-                 bundle.putString("companyname",R.id.nametajer.toString())
-                 bundle.putString("type",R.id.spinnertype.toString())
-                 bundle.putInt("price",R.id.price)
-                 bundle.putString("description",R.id.description.toString())
-                 f.arguments=bundle
-                 val prof= Intent(this.context, Main2Activity::class.java)
-                 startActivity(prof)
-     */
+        
 
             }
 
